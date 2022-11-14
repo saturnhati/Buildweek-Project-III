@@ -1,1 +1,54 @@
-<p>register works!</p>
+<div class="container my-5">
+  <form #f="ngForm" (ngSubmit)="onSubmit()" class="boxform bg-white p-5">
+    <div class="icon"><i class="bi bi-person-circle"></i></div>
+    <div class="mb-3 d-sm-flex gap-1">
+      <input
+        ngModel
+        name="firstname"
+        type="text"
+        class="form-control mb-1 mb-sm-0"
+        placeholder="Firstname"
+      />
+      <input
+        ngModel
+        name="lastname"
+        type="text"
+        class="form-control"
+        placeholder="Lastname"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        ngModel
+        name="email"
+        type="email"
+        class="form-control"
+        placeholder="Email"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        ngModel
+        name="password"
+        type="password"
+        class="form-control"
+        placeholder="Password"
+      />
+    </div>
+    <div class="mb-3 d-sm-flex justify-content-between gap-1">
+      <input
+        ngModel
+        name="age"
+        type="number"
+        class="form-control w-75 mb-2 mb-sm-0"
+        placeholder="Age"
+      />
+      <select ngModel name="role" class="form-control w-25">
+        <option value="" selected disabled>Role</option>
+        <option value="ROLE_USER">User</option>
+        <option value="ROLE_ADMIN" disabled>Admin</option>
+      </select>
+    </div>
+    <button type="submit" class="btn">Register</button>
+  </form>
+</div>

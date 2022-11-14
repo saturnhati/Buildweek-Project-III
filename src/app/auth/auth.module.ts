@@ -5,6 +5,7 @@ import { LoginPage } from './login/login.page';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersPage } from './users/users.page';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -25,7 +26,12 @@ const Component = [RegisterPage, LoginPage, UsersPage];
 
 @NgModule({
   declarations: [...Component],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    HttpClientModule,
+  ],
   exports: [...Component],
 })
 export class AuthModule {}
