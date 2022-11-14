@@ -1,0 +1,38 @@
+#sidebar {
+  height: 80vh;
+  width: 15vw;
+  margin-right: 2vh;
+  border-radius: 8px;
+  box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+}
+
+.list-group {
+  margin: 0 auto;
+  ul {
+    padding: 0;
+    cursor: pointer;
+  }
+  i {
+    font-size: 2rem;
+    color: lightgray;
+  }
+  p {
+    margin-bottom: 0;
+    color: gray;
+  }
+}
+
+.dropdown {
+  position: relative;
+  bottom: 0;
+  .dropdown-toggle {
+    outline: 0;
+  }
+}
+.modal {
+  border-radius: 17px;
+  box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+  .modal-content {
+    height: 80vh;
+  }
+}
