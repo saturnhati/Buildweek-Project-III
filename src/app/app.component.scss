@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .header {
+    position: sticky;
+    flex: 1;
+  }
+  .container {
+    flex: 1;
+  }
+}

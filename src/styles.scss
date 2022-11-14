@@ -1,7 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-image: url(./assets/img/bg4.png);
+  background-size: contain;
+}
+
+// Website palette
+// #3A7273
+// #7DAEB2
+// #A5D1D6
+// #FF8C45
+// #E3E3E3

@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { CustomersPage } from './customers/customers.page';
+import { InvoicesPage } from './invoices/invoices.page';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'customers',
+    component: CustomersPage,
+  },
+  {
+    path: 'invoices',
+    component: InvoicesPage,
+  },
+];
+
+const Components = [CustomersPage, InvoicesPage];
+
+@NgModule({
+  declarations: [...Components],
+  imports: [CommonModule, RouterModule.forChild(routes)],
+  exports: [...Components],
+})
+export class CustomersModule {}

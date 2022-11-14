@@ -1,0 +1,20 @@
+.container {
+  max-width: 600px;
+  form {
+    // border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+    .icon {
+      text-align: center;
+      margin-bottom: 1rem;
+      i {
+        font-size: 5rem;
+        color: lightgray;
+      }
+    }
+    button {
+      background-color: #ff8c45;
+      color: white;
+    }
+  }
+}
