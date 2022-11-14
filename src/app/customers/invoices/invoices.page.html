@@ -1,1 +1,106 @@
-<p>invoices works!</p>
+<div class="container-all">
+  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
+    <a
+      href="/"
+      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+    >
+      <svg class="bi pe-none me-2" width="40" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr />
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a class="nav-link active" (click)="viewList()"> Invoices List </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark" (click)="viewForm()"> Add Invoice </a>
+      </li>
+    </ul>
+    <hr />
+    <div class="dropdown">
+      <a
+        href="#"
+        class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="https://github.com/mdo.png"
+          alt=""
+          width="32"
+          height="32"
+          class="rounded-circle me-2"
+        />
+        <strong>mdo</strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="!list">
+    <form>
+      <div class="mb-3">
+        <input type="date" class="form-control" id="data" placeholder="date" />
+      </div>
+      <div class="mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="invoiceNumber"
+          placeholder="Invoice number"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="anno"
+          placeholder="year"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="importo"
+          placeholder="amount"
+        />
+      </div>
+      <div class="mb-3">
+        <button class="btn">Paid</button>
+      </div>
+      <div class="mb-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Cliente</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <input
+          type="date"
+          class="form-control"
+          id="dataInserimento"
+          placeholder="Data inserimento"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="date"
+          class="form-control"
+          id="dataUltimaModifica"
+          placeholder="Data ulitima modifica"
+        />
+      </div>
+    </form>
+  </div>
+</div>

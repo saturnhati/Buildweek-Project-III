@@ -6,9 +6,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersPage implements OnInit {
 
+  list :boolean = true
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  viewList() {
+    this.list = true;
+  }
+
+  viewForm() {
+    this.list = false;
+  }
 }

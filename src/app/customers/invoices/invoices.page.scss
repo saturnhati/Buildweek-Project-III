@@ -1,0 +1,19 @@
+.container-all {
+    padding: 0;
+    display: flex;
+.sidebar {
+    width: 280px;
+    height: calc(100vh - 113px);
+}
+li {
+    margin-bottom: 4px;
+    text-align: center;
+    .nav-link {
+        background-color: white;
+        color: black;
+    }
+    button.btn {
+        text-align: center;
+    } 
+}
+}

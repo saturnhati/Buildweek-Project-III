@@ -1,7 +1,23 @@
+// .main {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   .header {
+//     position: sticky;
+//     flex: 1;
+//   }
+//   .container {
+//     flex: 1;
+//   }
+// }
 .main {
   min-height: 100vh;
   .header {
     position: sticky;
+  }
+  .container {
+    margin: 0;
+    padding: 0;
   }
   .footer {
     position: fixed;
