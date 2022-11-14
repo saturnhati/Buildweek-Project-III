@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { User } from '../user.interface';
 
 @Component({
   templateUrl: './register.page.html',
@@ -16,7 +17,9 @@ export class RegisterPage implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.authService.signUp(this.form.value).subscribe(
+    let newObj: User = this.form.value;
+    newObj.roles = 'ROLE_USER';
+    this.authService.signUp(newObj).subscribe(
       (data) => {
         console.log(data),
           (this.error = undefined),
