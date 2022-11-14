@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsersPage } from './users/users.page';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const Component = [RegisterPage, LoginPage, UsersPage];
     RouterModule.forChild(routes),
     FormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   exports: [...Component],
 })

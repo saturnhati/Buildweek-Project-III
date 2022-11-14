@@ -22,3 +22,9 @@
     <button type="submit" class="btn">Login</button>
   </form>
 </div>
+<div class="toast-container">
+  <ngb-toast *ngIf="show"> Logged in! </ngb-toast>
+</div>
+<div class="toast-container">
+  <ngb-toast *ngIf="showError"> Error: {{ this.error}} </ngb-toast>
+</div>

@@ -11,6 +11,8 @@ import { User } from '../user.interface';
 export class RegisterPage implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
+  show = false;
+  showError = false;
 
   constructor(private authService: AuthService, private route: Router) {}
 
@@ -23,10 +25,21 @@ export class RegisterPage implements OnInit {
       (data) => {
         console.log(data),
           (this.error = undefined),
-          this.route.navigate(['/login']);
+          setTimeout(() => {
+            this.route.navigate(['/login']);
+          }, 1500),
+          (this.show = true),
+          setTimeout(() => {
+            this.show = false;
+          }, 1500);
       },
       (err) => {
-        console.log(err), (this.error = err.error);
+        console.log(err),
+          (this.error = err.error),
+          (this.showError = true),
+          setTimeout(() => {
+            this.showError = false;
+          }, 1500);
       }
     );
   }

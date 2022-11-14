@@ -11,15 +11,6 @@
         "ROLE_ADMIN",
         "ROLE_USER"
       ]
-    },
-    {
-      "email": "mario@rossi.com",
-      "password": "$2a$10$SR7iJofAe23oxq.5EEnWR.cWlt5wFvr8/ROPNNRzLxRk3Rif.VghO",
-      "firstname": "Mario",
-      "lastname": "Rossi",
-      "age": 30,
-      "roles": "ROLE_USER",
-      "id": 2
     }
   ],
   "client": [
