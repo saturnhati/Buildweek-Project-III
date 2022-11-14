@@ -1,13 +1,17 @@
 .hero {
-    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+  box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
 }
 span {
-    color: #ff8c45;
+  color: #ff8c45;
 }
 button {
-    background-color: #ff8c45;
-    color: white;
-  }
-  .mCard {
-    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
-  }
+  background-color: #ff8c45;
+  color: white;
+}
+button:hover {
+  background-color: #d87639;
+  color: white;
+}
+.mCard {
+  box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+}

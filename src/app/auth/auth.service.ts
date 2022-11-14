@@ -4,11 +4,21 @@ import { tap } from 'rxjs/operators';
 import { User } from './user.interface';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
+export interface AuthData {
+  accessToken: string;
+  user: {
+    id: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isLogged: User | null = null;
+  private isLogged: AuthData | null = null;
   helper = new JwtHelperService();
 
   constructor(private http: HttpClient) {
@@ -32,7 +42,7 @@ export class AuthService {
   }
 
   signIn(obj: User) {
-    return this.http.post<User>('http://localhost:3000/login', obj).pipe(
+    return this.http.post<AuthData>('http://localhost:3000/login', obj).pipe(
       tap((data) => {
         console.log(data);
         this.isLogged = data;
