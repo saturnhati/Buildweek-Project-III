@@ -1,118 +1,367 @@
 <div class="container d-flex">
-  <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-light">
-    <a
-      href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
-    >
-      <span class="fs-4">Menù admin</span>
-    </a>
-    <hr />
+  <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3">
+    <div class="d-flex justify-content-between align-item-center mb-3 mb-md-0">
+      <h4>Dashboard</h4>
+      <div>
+        <i
+          class="bi bi-person-plus-fill"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          data-bs-whatever="@mdo"
+        ></i>
+      </div>
+      <!-- Prova Modale -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
+            </div>
+            <form #f="ngForm" class="boxform bg-white p-5">
+              <div class="mb-3 d-sm-flex gap-1">
+                <input
+                  ngModel
+                  name="firstname"
+                  type="text"
+                  class="form-control mb-1 mb-sm-0"
+                  placeholder="Firstname"
+                />
+                <input
+                  ngModel
+                  name="lastname"
+                  type="text"
+                  class="form-control"
+                  placeholder="Lastname"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  ngModel
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  ngModel
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="mb-3 d-sm-flex justify-content-between gap-1">
+                <input
+                  ngModel
+                  name="age"
+                  type="number"
+                  class="form-control w-75 mb-2 mb-sm-0"
+                  placeholder="Age"
+                />
+                <select ngModel name="role" class="form-control w-25">
+                  <option value="" selected disabled>Role</option>
+                  <option value="ROLE_USER">User</option>
+                  <option value="ROLE_ADMIN">Admin</option>
+                </select>
+              </div>
+            </form>
 
-    <div class="list-group w-auto mb-auto">
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-delete"
+                data-bs-dismiss="modal"
+              >
+                <h5>Cancel</h5>
+              </button>
+              <button id="add-button" type="button" class="btn">
+                <h5>Confirm</h5>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fine modale -->
+    </div>
+
+    <div class="list-group w-auto mb-auto overflow-auto">
       <ul class="nav nav-pills flex-column mb-auto">
         <li
           class="list-group-item list-group-item-action d-flex gap-3 py-3"
           aria-current="true"
         >
-          <div class="d-flex gap-2 w-100 justify-content-between">
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
             <div class="icon"><i class="bi bi-person-circle"></i></div>
             <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75">Clicca per i dettagli</p>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
           </div>
         </li>
         <li
           class="list-group-item list-group-item-action d-flex gap-3 py-3"
           aria-current="true"
         >
-          <div class="d-flex gap-2 w-100 justify-content-between">
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
             <div class="icon"><i class="bi bi-person-circle"></i></div>
             <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75">Clicca per i dettagli</p>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
           </div>
         </li>
         <li
           class="list-group-item list-group-item-action d-flex gap-3 py-3"
           aria-current="true"
         >
-          <div class="d-flex gap-2 w-100 justify-content-between">
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
             <div class="icon"><i class="bi bi-person-circle"></i></div>
             <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75">Clicca per i dettagli</p>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
           </div>
         </li>
         <li
           class="list-group-item list-group-item-action d-flex gap-3 py-3"
           aria-current="true"
         >
-          <div class="d-flex gap-2 w-100 justify-content-between">
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
             <div class="icon"><i class="bi bi-person-circle"></i></div>
             <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75">Clicca per i dettagli</p>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
           </div>
         </li>
-      </ul>
-    </div>
-
-    <hr />
-    <div class="dropdown">
-      <a
-        href="#"
-        class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <img
-          src="https://github.com/mdo.png"
-          alt=""
-          width="32"
-          height="32"
-          class="rounded-circle me-2"
-        />
-        <strong>mdo</strong>
-      </a>
-      <ul class="dropdown-menu text-small shadow">
-        <li class="dropdown-item">Nuovo utente</li>
-        <li class="dropdown-item">Settings</li>
-        <li class="dropdown-item">Profile</li>
-        <li><hr class="dropdown-divider" /></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
+        <li
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+          aria-current="true"
+        >
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
+            <div class="icon"><i class="bi bi-person-circle"></i></div>
+            <h6 class="mb-0">Nome Cognome</h6>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
+          </div>
+        </li>
+        <li
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+          aria-current="true"
+        >
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
+            <div class="icon"><i class="bi bi-person-circle"></i></div>
+            <h6 class="mb-0">Nome Cognome</h6>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
+          </div>
+        </li>
+        <li
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+          aria-current="true"
+        >
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
+            <div class="icon"><i class="bi bi-person-circle"></i></div>
+            <h6 class="mb-0">Nome Cognome</h6>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
+          </div>
+        </li>
+        <li
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+          aria-current="true"
+        >
+          <div
+            class="user-container d-flex gap-2 justify-content-between align-items-center"
+          >
+            <div class="icon"><i class="bi bi-person-circle"></i></div>
+            <h6 class="mb-0">Nome Cognome</h6>
+            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 
-  <div
-    class="modal modal-sheet position-static d-block"
-    tabindex="-1"
-    role="dialog"
-    id="modalSheet"
-  >
-    <div class="modal-content rounded-4 shadow">
-      <div class="modal-header border-bottom-0">
-        <h1 class="modal-title fs-5">Modal title</h1>
+  <div class="users-details">
+    <div class="container">
+      <div class="icon"><i class="bi bi-person-circle"></i></div>
+
+      <div>
+        <ul class="d-flex flex-wrap justify-content-between align-items-center">
+          <li>
+            <h5>Name</h5>
+            <p>Mario</p>
+          </li>
+          <li>
+            <h5>Lastname</h5>
+            <p>Rossi</p>
+          </li>
+          <li>
+            <h5>Age</h5>
+            <p>36</p>
+          </li>
+          <li>
+            <h5>Email</h5>
+            <p>Mario@rossi.it</p>
+          </li>
+          <li>
+            <h5>Password</h5>
+            <p>12345</p>
+          </li>
+          <li>
+            <h5>Role</h5>
+            <p>Admin</p>
+          </li>
+        </ul>
+
         <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body py-0">
-        <p>
-          This is a modal sheet, a variation of the modal that docs itself to
-          the bottom of the viewport like the newer share sheets in iOS.
-        </p>
-      </div>
-      <div class="modal-footer flex-column border-top-0">
-        <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2">
-          Save changes
-        </button>
-        <button
-          type="button"
-          class="btn btn-lg btn-light w-100 mx-0"
-          data-bs-dismiss="modal"
+          class="btn btn-sm mx-2"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop2"
+          data-bs-whatever="@mdo"
         >
-          Close
+          <h5>Edit<i class="bi bi-pencil-square"></i></h5>
         </button>
+        <!-- MODAL EDIT-->
+        <div
+          class="modal fade"
+          id="staticBackdrop2"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Edit User
+                </h1>
+              </div>
+              <form #f="ngForm" class="boxform bg-white p-5">
+                <div class="mb-3 d-sm-flex gap-1">
+                  <input
+                    ngModel
+                    name="firstname"
+                    type="text"
+                    class="form-control mb-1 mb-sm-0"
+                    placeholder="Firstname"
+                  />
+                  <input
+                    ngModel
+                    name="lastname"
+                    type="text"
+                    class="form-control"
+                    placeholder="Lastname"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    ngModel
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    ngModel
+                    name="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="mb-3 d-sm-flex justify-content-between gap-1">
+                  <input
+                    ngModel
+                    name="age"
+                    type="number"
+                    class="form-control w-75 mb-2 mb-sm-0"
+                    placeholder="Age"
+                  />
+                  <select ngModel name="role" class="form-control w-25">
+                    <option value="" selected>Role</option>
+                    <option value="ROLE_USER">User</option>
+                    <option value="ROLE_ADMIN">Admin</option>
+                  </select>
+                </div>
+              </form>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-delete"
+                  data-bs-dismiss="modal"
+                >
+                  <h5>Cancel</h5>
+                </button>
+                <button id="add-button" type="button" class="btn">
+                  <h5>Confirm</h5>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FINE MODAL EDIT -->
+
+        <button
+          id="delete-button"
+          class="btn btn-sm mx-2"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop3"
+          data-bs-whatever="@mdo"
+        >
+          <h5>Delete<i class="bi bi-file-earmark-x"></i></h5>
+        </button>
+        <div
+          class="modal fade"
+          id="staticBackdrop3"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title mx-2" id="exampleModalLabel">
+                  Are you sure you want to delete this user?
+                </h2>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-delete btn-sm"
+                  data-bs-dismiss="modal"
+                >
+                  <h5>Cancel</h5>
+                </button>
+                <button id="add-button" type="button" class="btn btn-sm">
+                  <h5>Confirm</h5>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
