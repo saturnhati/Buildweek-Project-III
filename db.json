@@ -13,13 +13,22 @@
       ]
     },
     {
-      "email": "luca@email.com",
-      "password": "$2a$10$B3P.3oQxfG/GYp6yQgwUb.GVDWyfHrdUnr.Mcn/9EWkIqwN0AWJtC",
-      "firstname": "luca",
-      "lastname": "senatore",
-      "age": 21,
-      "roles": "ROLE_USER",
+      "email": "gaia@filippi.it",
+      "password": "$2a$10$abm.ezCFX03FBrGuPXx4dehIs.ig2m.mh5MXK3WwFKFyJLw9QLIZK",
+      "firstname": "gaia",
+      "lastname": "filippi",
+      "age": 28,
+      "roles": "ROLE_ADMIN",
       "id": 2
+    },
+    {
+      "email": null,
+      "password": null,
+      "firstname": null,
+      "lastname": null,
+      "age": null,
+      "roles": null,
+      "id": 3
     }
   ],
   "client": [
@@ -60,17 +69,6 @@
       },
       "dataInserimento": "2019-06-01T08:11:01.911+00:00",
       "dataUltimaModifica": "2021-03-24T21:32:06.375+00:00"
-    },
-    {
-      "data": "",
-      "numero": "",
-      "anno": "",
-      "importo": "",
-      "stato": "PAGATA",
-      "customer": "",
-      "dataInserimento": "\"2022-11-15T09:48:41.394Z\"",
-      "dataUltimaModifica": "\"2022-11-15T09:48:41.394Z\"",
-      "id": 2
     }
   ]
 }
