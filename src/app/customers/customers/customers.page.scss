@@ -1,3 +1,6 @@
+.container-all{
+    padding: 0;
+    display: flex;
 .sidebar {
     width: 280px;
     height: calc(100vh - 113px);
@@ -12,4 +15,5 @@ li {
     button.btn {
         text-align: center;
     } 
+}
 }

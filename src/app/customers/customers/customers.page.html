@@ -1,3 +1,4 @@
+<div class="container-all">
 <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
   <a
     href="/"
@@ -42,4 +43,34 @@
       <li><a class="dropdown-item" href="#">Sign out</a></li>
     </ul>
   </div>
+</div>
+
+<div class="container" *ngIf="list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ragione sociale</th>
+        <th scope="col">Partita IVA</th>
+        <th scope="col">Tipo cliente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of costomersArr">
+        <td scope="row">{{item.id}}</td>
+        <td scope="row">{{item.ragioneSociale}}</td>
+        <td scope="row">{{item.partitaIva}}</td>
+        <td scope="row">{{item.tipoCliente}}</td>
+        <td>
+          <button class="btn-sm" (click)="deleteCostomers(item)">Delete</button>
+          <button class="btn-sm"><details></details></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="!list">
+  
+</div>
 </div>
