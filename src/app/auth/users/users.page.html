@@ -25,7 +25,11 @@
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
             </div>
-            <form #f="ngForm" class="boxform bg-white p-5">
+            <form
+              #f="ngForm"
+              (ngSubmit)="addUser()"
+              class="boxform bg-white p-5"
+            >
               <div class="mb-3 d-sm-flex gap-1">
                 <input
                   ngModel
@@ -68,26 +72,30 @@
                   class="form-control w-75 mb-2 mb-sm-0"
                   placeholder="Age"
                 />
-                <select ngModel name="role" class="form-control w-25">
-                  <option value="" selected disabled>Role</option>
+                <select ngModel name="roles" class="form-control w-25">
+                  <option value="" selected disabled>Roles</option>
                   <option value="ROLE_USER">User</option>
                   <option value="ROLE_ADMIN">Admin</option>
                 </select>
               </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-delete"
+                  data-bs-dismiss="modal"
+                >
+                  <h5>Cancel</h5>
+                </button>
+                <button
+                  id="add-button"
+                  type="submit"
+                  class="btn"
+                  data-bs-dismiss="modal"
+                >
+                  <h5>Confirm</h5>
+                </button>
+              </div>
             </form>
-
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-delete"
-                data-bs-dismiss="modal"
-              >
-                <h5>Cancel</h5>
-              </button>
-              <button id="add-button" type="button" class="btn">
-                <h5>Confirm</h5>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -97,98 +105,19 @@
     <div class="list-group w-auto mb-auto overflow-auto">
       <ul class="nav nav-pills flex-column mb-auto">
         <li
+          *ngFor="let user of this.users"
           class="list-group-item list-group-item-action d-flex gap-3 py-3"
           aria-current="true"
         >
           <div
+            (click)="userDetail(user)"
             class="user-container d-flex gap-2 justify-content-between align-items-center"
           >
             <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
-            <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
-          </div>
-        </li>
-        <li
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <div
-            class="user-container d-flex gap-2 justify-content-between align-items-center"
-          >
-            <div class="icon"><i class="bi bi-person-circle"></i></div>
-            <h6 class="mb-0">Nome Cognome</h6>
+            <h6 class="mb-0">
+              {{user.firstname | titlecase}} <br />
+              {{user.lastname | titlecase}}
+            </h6>
             <p class="mb-0 opacity-75"><i class="bi bi-search"></i></p>
           </div>
         </li>
@@ -204,27 +133,24 @@
         <ul class="d-flex flex-wrap justify-content-between align-items-center">
           <li>
             <h5>Name</h5>
-            <p>Mario</p>
+            <p>
+              {{this.detailUser?.firstname | titlecase}}
+              {{this.detailUser?.lastname | titlecase}}
+            </p>
           </li>
-          <li>
-            <h5>Lastname</h5>
-            <p>Rossi</p>
-          </li>
+
           <li>
             <h5>Age</h5>
-            <p>36</p>
+            <p>{{this.detailUser?.age}}</p>
+          </li>
+
+          <li>
+            <h5>Role</h5>
+            <p>{{this.detailUser?.roles | titlecase}}</p>
           </li>
           <li>
             <h5>Email</h5>
-            <p>Mario@rossi.it</p>
-          </li>
-          <li>
-            <h5>Password</h5>
-            <p>12345</p>
-          </li>
-          <li>
-            <h5>Role</h5>
-            <p>Admin</p>
+            <p>{{this.detailUser?.email}}</p>
           </li>
         </ul>
 
@@ -246,76 +172,95 @@
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
+          <div
+            *ngIf="this.detailUser"
+            class="modal-dialog modal-dialog-centered"
+          >
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
                   Edit User
                 </h1>
               </div>
-              <form #f="ngForm" class="boxform bg-white p-5">
+              <form
+                [formGroup]="form2"
+                (ngSubmit)="updateUser(this.detailUser)"
+                class="boxform bg-white p-5"
+              >
                 <div class="mb-3 d-sm-flex gap-1">
                   <input
-                    ngModel
+                    FormControlName="firstname"
                     name="firstname"
                     type="text"
                     class="form-control mb-1 mb-sm-0"
                     placeholder="Firstname"
                   />
                   <input
-                    ngModel
+                    FormControlName="lastname"
                     name="lastname"
                     type="text"
                     class="form-control"
                     placeholder="Lastname"
+                    value="{{this.detailUser.lastname | titlecase}}"
                   />
                 </div>
                 <div class="mb-3">
                   <input
-                    ngModel
+                    FormControlName="email"
                     name="email"
                     type="email"
                     class="form-control"
                     placeholder="Email"
+                    value="{{this.detailUser.email}}"
                   />
                 </div>
                 <div class="mb-3">
                   <input
-                    ngModel
+                    FormControlName="password"
                     name="password"
                     type="password"
                     class="form-control"
                     placeholder="Password"
+                    value="{{this.detailUser.password}}"
                   />
                 </div>
                 <div class="mb-3 d-sm-flex justify-content-between gap-1">
                   <input
-                    ngModel
+                    FormControlName="age"
                     name="age"
                     type="number"
                     class="form-control w-75 mb-2 mb-sm-0"
                     placeholder="Age"
+                    value="{{this.detailUser.age}}"
                   />
-                  <select ngModel name="role" class="form-control w-25">
-                    <option value="" selected>Role</option>
+                  <select
+                    FormControlName="roles"
+                    name="roles"
+                    class="form-control w-25"
+                    value="{{this.detailUser.roles}}"
+                  >
                     <option value="ROLE_USER">User</option>
                     <option value="ROLE_ADMIN">Admin</option>
                   </select>
                 </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-delete"
+                    data-bs-dismiss="modal"
+                  >
+                    <h5>Cancel</h5>
+                  </button>
+                  <button
+                    id="add-button"
+                    type="submit"
+                    class="btn"
+                    data-bs-dismiss="modal"
+                  >
+                    <h5>Confirm</h5>
+                  </button>
+                </div>
               </form>
-
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-delete"
-                  data-bs-dismiss="modal"
-                >
-                  <h5>Cancel</h5>
-                </button>
-                <button id="add-button" type="button" class="btn">
-                  <h5>Confirm</h5>
-                </button>
-              </div>
             </div>
           </div>
         </div>

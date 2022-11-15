@@ -53,4 +53,12 @@ export class AuthService {
   getIsLogged() {
     return this.isLogged;
   }
+
+  getUsers() {
+    return this.http.get<User[]>('http://localhost:3000/users');
+  }
+
+  updateUser(data: User, id: number | undefined) {
+    return this.http.patch<User>('http://localhost:3000/users/' + id, data);
+  }
 }
