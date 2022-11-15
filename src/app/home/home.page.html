@@ -1,10 +1,10 @@
-<main>
-  <div class="container py-2 mt-4 mb-4">
+<main *ngIf="this.loggedUser !== null">
+  <div class="container py-2 mt-4 mb-5">
     <div class="hero p-3 mb-4 bg-light rounded-3">
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold ms-4">
           Welcome Back
-          <span>{{this.loggedUser?.user?.firstname | titlecase }}</span>,
+          <span>{{this.loggedUser.user.firstname | titlecase }}</span>,
         </h1>
         <p class="col-md-8 fs-4 ms-4">
           we've got a lot of work to do today!<br />
@@ -29,6 +29,41 @@
           <p>Check status and details</p>
           <button [routerLink]="['/customers']" class="btn" type="button">
             View Invoices
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Pagina no-Log -->
+<main *ngIf="this.loggedUser == null">
+  <div class="container py-2 mt-4 mb-5">
+    <div class="hero p-3 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold ms-4">New around <span>here</span>?</h1>
+        <p class="col-md-8 fs-4 ms-4">
+          Why don't you introduce
+          <span>yourself</span>?
+        </p>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="p-5 mCard bg-light border rounded-3">
+          <h2><span>Login</span></h2>
+          <p>Log to your account here</p>
+          <button [routerLink]="['/login']" class="btn" type="button">
+            Login
+          </button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-5 bg-light border rounded-3 mCard">
+          <h2><span>Register</span></h2>
+          <p>You can create an account here</p>
+          <button [routerLink]="['/register']" class="btn" type="button">
+            Register
           </button>
         </div>
       </div>
