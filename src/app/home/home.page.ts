@@ -9,9 +9,9 @@ import { User } from '../auth/user.interface';
 export class HomePage implements OnInit, OnChanges {
   loggedUser!: AuthData | null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
-  ngOnChanges() {}
+  ngOnChanges() { }
 
   ngOnInit(): void {
     this.loggedUser = this.authService.getIsLogged();
