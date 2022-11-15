@@ -36,7 +36,14 @@
         <strong>{{this.loggedUser?.user?.firstname | titlecase}}</strong>
       </a>
       <ul class="dropdown-menu text-small shadow">
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
+        <li>
+          <a
+            *ngIf="this.loggedUser !== null"
+            class="dropdown-item"
+            (click)="logout(this.loggedUser)"
+            >Logout</a
+          >
+        </li>
       </ul>
     </div>
   </div>

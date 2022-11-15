@@ -74,8 +74,8 @@
                 />
                 <select ngModel name="roles" class="form-control w-25">
                   <option value="" selected disabled>Roles</option>
-                  <option value="ROLE_USER">User</option>
-                  <option value="ROLE_ADMIN">Admin</option>
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
                 </select>
               </div>
               <div class="modal-footer">
@@ -126,8 +126,19 @@
   </div>
 
   <div class="users-details">
-    <div class="container">
-      <div class="icon"><i class="bi bi-person-circle"></i></div>
+    <div
+      *ngIf="this.detailUser == undefined || this.detailUser == null"
+      class="container empty-user"
+    >
+      <h2>Click on a user to see details</h2>
+    </div>
+    <div
+      *ngIf="this.detailUser !== undefined &&this.detailUser !== null"
+      class="container"
+    >
+      <div class="icon">
+        <i class="bi bi-person-circle"></i>
+      </div>
 
       <div>
         <ul class="d-flex flex-wrap justify-content-between align-items-center">
@@ -146,7 +157,7 @@
 
           <li>
             <h5>Role</h5>
-            <p>{{this.detailUser?.roles | titlecase}}</p>
+            <p>{{this.detailUser?.roles}}</p>
           </li>
           <li>
             <h5>Email</h5>
@@ -155,10 +166,12 @@
         </ul>
 
         <button
+          *ngIf="this.detailUser !== null"
           class="btn btn-sm mx-2"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop2"
           data-bs-whatever="@mdo"
+          (click)="openForm(this.detailUser)"
         >
           <h5>Edit<i class="bi bi-pencil-square"></i></h5>
         </button>
@@ -183,64 +196,46 @@
                 </h1>
               </div>
               <form
-                [formGroup]="form2"
+                #f2="ngForm"
                 (ngSubmit)="updateUser(this.detailUser)"
                 class="boxform bg-white p-5"
               >
                 <div class="mb-3 d-sm-flex gap-1">
                   <input
-                    FormControlName="firstname"
+                    ngModel
                     name="firstname"
                     type="text"
                     class="form-control mb-1 mb-sm-0"
                     placeholder="Firstname"
                   />
                   <input
-                    FormControlName="lastname"
+                    ngModel
                     name="lastname"
                     type="text"
                     class="form-control"
                     placeholder="Lastname"
-                    value="{{this.detailUser.lastname | titlecase}}"
                   />
                 </div>
                 <div class="mb-3">
                   <input
-                    FormControlName="email"
+                    ngModel
                     name="email"
                     type="email"
                     class="form-control"
                     placeholder="Email"
-                    value="{{this.detailUser.email}}"
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    FormControlName="password"
-                    name="password"
-                    type="password"
-                    class="form-control"
-                    placeholder="Password"
-                    value="{{this.detailUser.password}}"
                   />
                 </div>
                 <div class="mb-3 d-sm-flex justify-content-between gap-1">
                   <input
-                    FormControlName="age"
+                    ngModel
                     name="age"
                     type="number"
                     class="form-control w-75 mb-2 mb-sm-0"
                     placeholder="Age"
-                    value="{{this.detailUser.age}}"
                   />
-                  <select
-                    FormControlName="roles"
-                    name="roles"
-                    class="form-control w-25"
-                    value="{{this.detailUser.roles}}"
-                  >
-                    <option value="ROLE_USER">User</option>
-                    <option value="ROLE_ADMIN">Admin</option>
+                  <select ngModel name="roles" class="form-control w-25">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
                   </select>
                 </div>
                 <div class="modal-footer">
@@ -300,7 +295,14 @@
                 >
                   <h5>Cancel</h5>
                 </button>
-                <button id="add-button" type="button" class="btn btn-sm">
+                <button
+                  id="add-button"
+                  type="button"
+                  class="btn btn-sm"
+                  *ngIf="this.detailUser !== null"
+                  (click)="deleteUser(this.detailUser)"
+                  data-bs-dismiss="modal"
+                >
                   <h5>Confirm</h5>
                 </button>
               </div>

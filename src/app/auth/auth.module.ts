@@ -7,6 +7,7 @@ import { UsersPage } from './users/users.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminAuthGuard } from './admin-auth.guard';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersPage,
+    canActivate: [AdminAuthGuard],
   },
 ];
 

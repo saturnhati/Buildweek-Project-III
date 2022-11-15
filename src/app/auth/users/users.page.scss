@@ -80,8 +80,21 @@
   @media screen and (max-width: 768px) {
     width: 100%;
   }
+  .empty-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .container {
-    margin-top: 5vh;
+    margin-top: 0;
+    height: 100%;
+    h2 {
+      color: gray;
+      font-size: 1.2rem;
+    }
+    .icon {
+      margin-top: 5rem;
+    }
   }
 
   i {

@@ -20,7 +20,7 @@ export class RegisterPage implements OnInit {
 
   onSubmit() {
     let newObj: User = this.form.value;
-    newObj.roles = 'ROLE_USER';
+    newObj.roles = 'user';
     this.authService.signUp(newObj).subscribe(
       (data) => {
         console.log(data),

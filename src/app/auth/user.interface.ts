@@ -5,5 +5,5 @@ export interface User {
   email: string;
   password: string;
   age: number;
-  roles: 'ROLE_ADMIN' | 'ROLE_USER';
+  roles: 'admin' | 'user';
 }

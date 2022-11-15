@@ -1,34 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstname": "Olivier",
-      "lastname": "Monge",
-      "email": "olivier@mail.com",
-      "password": "bestPassw0rd",
-      "age": 32,
-      "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-      ]
-    },
-    {
-      "email": "gaia@filippi.it",
-      "password": "$2a$10$abm.ezCFX03FBrGuPXx4dehIs.ig2m.mh5MXK3WwFKFyJLw9QLIZK",
-      "firstname": "gaia",
-      "lastname": "filippi",
-      "age": 28,
-      "roles": "ROLE_ADMIN",
-      "id": 2
-    },
-    {
-      "email": null,
-      "password": null,
-      "firstname": null,
-      "lastname": null,
-      "age": null,
-      "roles": null,
-      "id": 3
+      "email": "admin@admin.com",
+      "password": "$2a$10$urPGAf6IQzr0/jClX5nFNuHoKW0snbbxMlySvcXTFg0OkDqIQRqNy",
+      "firstname": "admin",
+      "lastname": "admin",
+      "age": 20,
+      "roles": "admin",
+      "id": 1
     }
   ],
   "client": [

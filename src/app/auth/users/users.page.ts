@@ -11,20 +11,12 @@ export class UsersPage implements OnInit {
   constructor(private authService: AuthService) {}
 
   @ViewChild('f') form!: NgForm;
-  form2!: FormGroup;
+  @ViewChild('f2') form2!: NgForm;
   users: User[] = [];
   detailUser!: User | null;
 
   ngOnInit(): void {
     this.getUsers();
-    this.form2 = new FormGroup({
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-      age: new FormControl(''),
-      roles: new FormControl(''),
-    });
   }
 
   getUsers() {
@@ -36,18 +28,31 @@ export class UsersPage implements OnInit {
   }
 
   addUser() {
-    console.log(this.form.value);
-
     this.authService.signUp(this.form.value).subscribe((data) => {
-      console.log(data), this.getUsers();
+      this.getUsers();
+      this.form.reset();
+    });
+  }
+
+  openForm(obj: User) {
+    this.form2.setValue({
+      firstname: obj.firstname,
+      lastname: obj.lastname,
+      email: obj.email,
+      age: obj.age,
+      roles: obj.roles,
     });
   }
 
   updateUser(user: User) {
-    console.log(this.form2.value);
-
     this.authService.updateUser(this.form2.value, user.id).subscribe((data) => {
-      console.log(data), this.getUsers();
+      this.getUsers(), this.userDetail(data);
+    });
+  }
+
+  deleteUser(user: User) {
+    this.authService.deleteUser(user.id).subscribe((data) => {
+      this.getUsers(), (this.detailUser = null);
     });
   }
 }

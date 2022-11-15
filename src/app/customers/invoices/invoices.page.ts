@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthData, AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/auth/user.interface';
 import { InterfaceInvoice } from '../interface-invoice.interface';
 import { InvoicesService } from '../invoices.service';
 
@@ -85,5 +86,9 @@ export class InvoicesPage implements OnInit {
           (this.error = err), console.log(this.error);
         }
       );
+  }
+
+  logout(user: AuthData) {
+    this.authService.logout();
   }
 }
