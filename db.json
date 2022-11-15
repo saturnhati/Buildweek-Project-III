@@ -11,6 +11,15 @@
         "ROLE_ADMIN",
         "ROLE_USER"
       ]
+    },
+    {
+      "email": "luca@email.com",
+      "password": "$2a$10$B3P.3oQxfG/GYp6yQgwUb.GVDWyfHrdUnr.Mcn/9EWkIqwN0AWJtC",
+      "firstname": "luca",
+      "lastname": "senatore",
+      "age": 21,
+      "roles": "ROLE_USER",
+      "id": 2
     }
   ],
   "client": [
@@ -45,7 +54,7 @@
       "numero": 1,
       "anno": 2020,
       "importo": 2289.24,
-      "stato": "NON PAGATA",
+      "stato": "PAGATA",
       "cliente": {
         "id": 1
       },
@@ -57,33 +66,11 @@
       "numero": "",
       "anno": "",
       "importo": "",
-      "stato": "",
+      "stato": "PAGATA",
       "customer": "",
       "dataInserimento": "\"2022-11-15T09:48:41.394Z\"",
       "dataUltimaModifica": "\"2022-11-15T09:48:41.394Z\"",
       "id": 2
-    },
-    {
-      "data": "2022-11-15",
-      "numero": 1,
-      "anno": 2022,
-      "importo": 1500,
-      "stato": "",
-      "customer": "",
-      "dataInserimento": "\"2022-11-15T09:52:43.345Z\"",
-      "dataUltimaModifica": "\"2022-11-15T09:52:43.345Z\"",
-      "id": 3
-    },
-    {
-      "data": "2022-11-15",
-      "numero": 4,
-      "anno": 2022,
-      "importo": 1000,
-      "stato": "NON PAGATA",
-      "customer": "Giovanni",
-      "dataInserimento": "\"2022-11-15T09:58:45.843Z\"",
-      "dataUltimaModifica": "\"2022-11-15T09:58:45.843Z\"",
-      "id": 4
     }
   ]
 }
