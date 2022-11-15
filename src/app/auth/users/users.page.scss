@@ -7,7 +7,7 @@
 }
 
 #sidebar {
-  background-color: #e3e3e3;
+  background-color: white;
   max-height: 657px;
   height: 70vh;
   margin-right: 2vh;
@@ -24,9 +24,9 @@
 
   h4 {
     color: #ff8d43;
-    text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.2vh;
+    margin-bottom: 8%;
   }
   i {
     font-size: 1.4rem;
@@ -45,9 +45,15 @@
   }
 
   margin: 0 auto;
+
   ul {
     padding: 0;
     cursor: pointer;
+
+    li {
+      margin-bottom: 5%;
+      box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.055);
+    }
     i {
       font-size: 2rem;
       color: lightgray;
@@ -57,25 +63,25 @@
       color: gray;
     }
   }
+}
 
-  .user-container {
-    width: 95%;
-  }
+.user-container {
+  width: 95%;
 }
 
 .users-details {
   max-height: 657px;
   width: 70%;
   height: 70vh;
-  background-color: #e3e3e3;
+  background-color: white;
   border-radius: 8px;
   box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
   text-align: center;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
-  hr {
-    margin-bottom: 5vh;
+  .container {
+    margin-top: 5vh;
   }
 
   i {
@@ -83,45 +89,128 @@
     color: #ff8d43;
   }
   ul {
+    margin-top: 5vh;
     padding: 0;
     li {
       list-style: none;
       width: 33%;
+      @media screen and (max-width: 991px) {
+        width: 40%;
+        margin: 0 auto;
+      }
       margin: {
         top: 2vh;
       }
 
       h5 {
         color: #ff8d43;
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+      p {
+        font-size: 1.3rem;
         font-weight: bold;
       }
     }
   }
   button {
+    margin-top: 4vh;
     background-color: #ff8c45;
-    width: 22vh;
-    border-radius: 5em;
+    width: 150px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.055);
     h5 {
       color: white;
       font-weight: 700;
       letter-spacing: 0.2em;
       margin-top: 0.3vh;
+      i {
+        font-size: 1rem;
+        color: white;
+        margin-left: 5%;
+      }
     }
   }
   button:hover {
     background-color: #c26a34;
   }
+}
 
-  .delete-icon {
-    i {
-      font-size: 1.5rem;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      margin-right: 1vh;
-    }
-    i:hover {
-      cursor: pointer;
+// STILE MODALE ADDUSER
+.modal {
+  .modal-header {
+    h1 {
+      color: #ff8c45;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
     }
   }
+  .btn {
+    background-color: #ff8c45;
+    margin: 0;
+    margin: {
+      right: 3%;
+      bottom: 2%;
+    }
+
+    width: 110px;
+    h5 {
+      color: white;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      margin: {
+        top: 0;
+        bottom: 2%;
+      }
+      padding: 1% auto;
+      i {
+        font-size: 1rem;
+        color: white;
+        margin-left: 2%;
+      }
+    }
+  }
+  .btn-delete {
+    background-color: gray;
+  }
+  .btn-delete:hover {
+    background-color: #377374;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    color: black;
+    text-align: start;
+  }
+
+  .modal-footer {
+    button {
+      padding: {
+        top: 1%;
+        bottom: 1%;
+      }
+    }
+  }
+}
+
+#delete-button {
+  background-color: gray;
+}
+
+#delete-button:hover {
+  background-color: #377374;
+}
+
+// STILE SCROLLBAR
+
+.list-group::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-group::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+.list-group::-webkit-scrollbar-thumb {
+  background-color: #ff8c45;
+  border-radius: 2em;
 }
