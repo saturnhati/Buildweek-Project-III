@@ -51,6 +51,39 @@
       },
       "dataInserimento": "2019-06-01T08:11:01.911+00:00",
       "dataUltimaModifica": "2021-03-24T21:32:06.375+00:00"
+    },
+    {
+      "data": "",
+      "numero": "",
+      "anno": "",
+      "importo": "",
+      "stato": "",
+      "customer": "",
+      "dataInserimento": "\"2022-11-15T09:48:41.394Z\"",
+      "dataUltimaModifica": "\"2022-11-15T09:48:41.394Z\"",
+      "id": 2
+    },
+    {
+      "data": "2022-11-15",
+      "numero": 1,
+      "anno": 2022,
+      "importo": 1500,
+      "stato": "",
+      "customer": "",
+      "dataInserimento": "\"2022-11-15T09:52:43.345Z\"",
+      "dataUltimaModifica": "\"2022-11-15T09:52:43.345Z\"",
+      "id": 3
+    },
+    {
+      "data": "2022-11-15",
+      "numero": 4,
+      "anno": 2022,
+      "importo": 1000,
+      "stato": "NON PAGATA",
+      "customer": "Giovanni",
+      "dataInserimento": "\"2022-11-15T09:58:45.843Z\"",
+      "dataUltimaModifica": "\"2022-11-15T09:58:45.843Z\"",
+      "id": 4
     }
   ]
 }
