@@ -22,4 +22,12 @@ export class InvoicesService {
   deleteInvoice(obj: InterfaceInvoice) {
     return this.http.delete<InterfaceInvoice>('http://localhost:3000/invoices/' + obj.id)
   }
+
+  updateInvoice(data: Partial<InterfaceInvoice>, id: number | undefined) {
+    return this.http.patch<InterfaceInvoice>('http://localhost:3000/invoices/' + id, data)
+  }
+
+  pushInvoice(obj: InterfaceInvoice) {
+    return this.http.put<InterfaceInvoice>('http://localhost:3000/invoices/' + obj.id, obj)
+  }
 }

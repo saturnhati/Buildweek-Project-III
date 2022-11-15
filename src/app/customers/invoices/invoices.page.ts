@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthData, AuthService } from 'src/app/auth/auth.service';
 import { InterfaceInvoice } from '../interface-invoice.interface';
 import { InvoicesService } from '../invoices.service';
 
@@ -13,10 +14,17 @@ export class InvoicesPage implements OnInit {
   @ViewChild('f') mioForm!: NgForm;
   invoiceArr: InterfaceInvoice[] = []
   error = undefined
+  loggedUser!: AuthData | null
 
-  constructor(private invoicesService: InvoicesService ) { }
+  constructor(private invoicesService: InvoicesService, private authService: AuthService) { }
+  
 
   ngOnInit(): void {
+    this.getInvoices()
+    this.loggedUser = this.authService.getIsLogged()
+  }
+
+  getInvoices() {
     this.invoicesService.getInvoices().subscribe(data => this.invoiceArr = data)
   }
 
@@ -39,8 +47,29 @@ export class InvoicesPage implements OnInit {
   }
 
   deleteInvoice(invoice : InterfaceInvoice) {
-    this.invoicesService.deleteInvoice(invoice)
+    this.invoicesService.deleteInvoice(invoice).subscribe(data => { console.log(data) }
+    )
     let index = this.invoiceArr.indexOf(invoice)
     this.invoiceArr.splice(index, 1)
+  }
+
+  paidInvoice(invoice: InterfaceInvoice) {
+    this.invoicesService.updateInvoice({ stato: "PAGATA" }, invoice.id).subscribe(
+      data => {
+        data.stato = "PAGATA", console.log(data),
+          this.getInvoices();
+      },
+      err => { this.error = err, console.log(this.error) }
+    );
+  }
+
+  unpaidInvoice(invoice: InterfaceInvoice) {
+    this.invoicesService.updateInvoice({ stato: "NON PAGATA" }, invoice.id).subscribe(
+      data => {
+        data.stato = "NON PAGATA", console.log(data),
+          this.getInvoices();
+      },
+      err => { this.error = err, console.log(this.error) }
+    );
   }
 }
