@@ -8,6 +8,15 @@
       "age": 20,
       "roles": "admin",
       "id": 1
+    },
+    {
+      "email": "asavignano2002@gmail.com",
+      "password": "$2a$10$0Z/QWJT6/qPqdbxLk9BUSuH435ICOhYe1vu6xLWvyqxZ0ppqcu4nG",
+      "firstname": "andrea",
+      "lastname": "savignano",
+      "age": 20,
+      "roles": "user",
+      "id": 2
     }
   ],
   "client": [

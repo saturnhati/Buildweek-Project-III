@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CostomersService } from '../costomers.service';
+import { CustomersService } from '../customers.service';
 import { IClient } from '../interface-invoice.interface';
 
 
@@ -12,10 +12,10 @@ export class CustomersPage implements OnInit {
 
   list :boolean = true
   @ViewChild('f') mioForm! : NgForm;
-  costomersArr : IClient[]= [];
+  customersArr : IClient[]= [];
   error: undefined
 
-  constructor(private interfacecostomers : CostomersService) { }
+  constructor(private interfacecustomers : CustomersService) { }
 
   ngOnInit(): void {
   }
@@ -27,16 +27,16 @@ export class CustomersPage implements OnInit {
   viewForm() {
     this.list = false;
   }
-  addCostomers(){
+  addCustomers(){
   let obj : IClient = this.mioForm.value
-  this.interfacecostomers.addCostomers(obj).subscribe(
-    costomer => {this.costomersArr.push(costomer)},
+  this.interfacecustomers.addCustomers(obj).subscribe(
+    customer => {this.customersArr.push(customer)},
     err => {this.error = err, console.log(this.error) }
   )  
   }
-  deleteCostomers(costomer : IClient){
-    this.interfacecostomers.deleteCostomers(costomer)
-    let index = this.costomersArr.indexOf(costomer)
-    this.costomersArr.splice(index, 1)
+  deleteCustomers(costomer : IClient){
+    this.interfacecustomers.deleteCustomers(costomer)
+    let index = this.customersArr.indexOf(costomer)
+    this.customersArr.splice(index, 1)
   }
 }

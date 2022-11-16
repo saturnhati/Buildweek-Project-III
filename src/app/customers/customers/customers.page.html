@@ -56,13 +56,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of costomersArr">
+      <tr *ngFor="let item of customersArr">
         <td scope="row">{{item.id}}</td>
         <td scope="row">{{item.ragioneSociale}}</td>
         <td scope="row">{{item.partitaIva}}</td>
         <td scope="row">{{item.tipoCliente}}</td>
         <td>
-          <button class="btn-sm" (click)="deleteCostomers(item)">Delete</button>
+          <button class="btn-sm" (click)="deleteCustomers(item)">Delete</button>
           <button class="btn-sm"><details></details></button>
         </td>
       </tr>
@@ -71,6 +71,61 @@
 </div>
 
 <div class="container" *ngIf="!list">
-  
+  <form (ngSubmit)="addCustomers()" #f="ngForm">
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="ragioneSociale" placeholder="inserisci la tua ragione sociale...">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="partitaIVA" placeholder="inserisci la tua partitaIVA...">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="tipoCliente" placeholder="inserisci il tuo tipoCliente ...">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" ngModel name="email" placeholder="inserisci la tua email...">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="pec" placeholder="inserisci la tua pec...">
+    </div>
+    <div class="mb-3">
+      <input type="tel" class="form-control" ngModel name="telefono" placeholder="inserisci il tuo numero telefono...">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="nome" placeholder="inserisci il tuo nome...">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="cognome" placeholder="inserisci il tuo cognome...">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" ngModel name="numeroTelefono" placeholder="inserisci il tuo numero di telefono...">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" ngModel name="" placeholder="inserisci la tua email...">
+    </div>
+    <div>
+      <h1>Indirizzo sede:</h1>
+      <div class="mb-3">
+        <input type="text" class="form-control" ngModel name="Via" placeholder="inserisci la tua via...">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" ngModel name="Civico" placeholder="inserisci il tuo civico...">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" ngModel name="CAP" placeholder="inserisci il tuo CAP...">
+      </div>
+      <div>
+        <h1>Comune:</h1>
+        <div class="mb-3">
+          <input type="text" class="form-control" ngModel name="nome" placeholder="inserisci il nome del tuo comune...">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" ngModel name="provincia" placeholder="inserisci la tua provincia...">
+        </div>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn">Add</button>
+    </div>
+  </form>
 </div>
 </div>
