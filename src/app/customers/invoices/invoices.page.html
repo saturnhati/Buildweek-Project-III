@@ -1,229 +1,235 @@
-<div class="container-all">
-  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
-    <a
-      href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
-    >
-      <svg class="bi pe-none me-2" width="40" height="32">
-        <use xlink:href="#bootstrap"></use>
-      </svg>
-      <span class="fs-4">Sidebar</span>
-    </a>
-    <hr />
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a class="nav-link active" (click)="viewList()"> Invoices List </a>
-      </li>
-      <li>
-        <a class="nav-link link-dark" (click)="viewForm()"> Add Invoice </a>
-      </li>
-    </ul>
-    <hr />
-    <div class="dropdown">
-      <a
-        href="#"
-        class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <img
-          src="https://github.com/mdo.png"
-          alt=""
-          width="32"
-          height="32"
-          class="rounded-circle me-2"
-        />
-        <strong>{{this.loggedUser?.user?.firstname | titlecase}}</strong>
-      </a>
-      <ul class="dropdown-menu text-small shadow">
+<div class="main-content my-3 ms-3">
+  <div class="container-all">
+    <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
+      <h1 class="fs-4 text-center">Menu</h1>
+
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto align-items-center">
+        <li class="nav-item">
+          <button class="btn nav-link active" (click)="viewList()">
+            Invoices List
+          </button>
+        </li>
         <li>
-          <a
-            *ngIf="this.loggedUser !== null"
-            class="dropdown-item"
-            (click)="logout(this.loggedUser)"
-            >Logout</a
-          >
+          <button class="btn nav-link link-dark" (click)="viewForm()">
+            Add Invoice
+          </button>
         </li>
       </ul>
+      <hr />
+      <div class="dropdown">
+        <a
+          href="#"
+          class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-person-circle me-2 fs-4"></i>
+          <strong>{{this.loggedUser?.user?.firstname | titlecase}}</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li>
+            <a
+              *ngIf="this.loggedUser !== null"
+              class="dropdown-item"
+              (click)="logout(this.loggedUser)"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="container" *ngIf="list">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Cliente</th>
-          <th scope="col">Importo</th>
-          <th scope="col">Stato</th>
-          <th scope="col">Data</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let invoice of invoiceArr">
-          <td scope="row">{{invoice.numero}}</td>
-          <td scope="row">{{invoice.cliente}}</td>
-          <td scope="row">{{invoice.importo}}</td>
-          <td scope="row">{{invoice.stato}}</td>
-          <td scope="row">{{invoice.data}}</td>
-          <td scope="row">
-            <button class="btn-sm" (click)="paidInvoice(invoice)">
-              Mark as Paid
-            </button>
-            <button class="btn-sm" (click)="unpaidInvoice(invoice)">
-              Mark as Unpaid</button
-            ><button class="btn-sm" (click)="deleteInvoice(invoice)">
-              Delete</button
-            ><button
-              class="btn-sm"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-              (click)="showDetails(invoice)"
-            >
-              Details
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container tableList bg-light mx-3" *ngIf="list">
+      <table class="table table-borderless text-center">
+        <thead>
+          <tr>
+            <th scope="col">Nr°</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Importo</th>
+            <th scope="col">Stato</th>
+            <th scope="col">Data</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let invoice of invoiceArr" class="mb-5 bg-white">
+            <td scope="row" class="righeAbbassate">{{invoice.numero}}</td>
+            <td scope="row" class="righeAbbassate">{{invoice.cliente}}</td>
+            <td scope="row" class="righeAbbassate">
+              {{invoice.importo}}&euro;
+            </td>
+            <td scope="row" class="righeAbbassate">{{invoice.stato}}</td>
+            <td scope="row" class="righeAbbassate">{{invoice.data}}</td>
+            <td scope="row">
+              <div class="float-end">
+                <button class="btn btn-sm mx-1" (click)="paidInvoice(invoice)">
+                  Mark as Paid
+                </button>
+                <button
+                  class="btn btn-sm mx-1"
+                  (click)="unpaidInvoice(invoice)"
+                >
+                  Mark as Unpaid</button
+                ><button
+                  class="btn btn-sm mx-1"
+                  (click)="deleteInvoice(invoice)"
+                >
+                  Delete</button
+                ><button
+                  class="btn btn-sm mx-1"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  (click)="showDetails(invoice)"
+                >
+                  Info
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="staticBackdrop"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              Modal title
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col">
-                <h5>Invoice #</h5>
-                <p>{{invoiceObj?.numero}}</p>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-4 fw-bold ps-2"
+                id="staticBackdropLabel"
+              >
+                Invoice
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body ps-4">
+              <div class="row">
+                <div class="col">
+                  <h5>Invoice #</h5>
+                  <p>{{invoiceObj?.numero}}</p>
+                </div>
+                <div class="col">
+                  <h5>Date</h5>
+                  <p>{{invoiceObj?.data}}</p>
+                </div>
+                <div class="col">
+                  <h5>Total</h5>
+                  <p>{{invoiceObj?.importo}}&euro;</p>
+                </div>
+                <div class="col">
+                  <h5>Created On</h5>
+                  <p>{{invoiceObj?.dataInserimento | date :'short' }}</p>
+                </div>
               </div>
-              <div class="col">
-                <h5>Customer</h5>
-                <p>{{invoiceObj?.cliente}}</p>
-              </div>
-              <div class="col">
-                <h5>Total</h5>
-                <p>{{invoiceObj?.importo}}</p>
-              </div>
-              <div class="col">
-                <h5>Status</h5>
-                <p>{{invoiceObj?.stato}}</p>
+              <div class="row secondaRigaModale">
+                <div class="col">
+                  <h5>Customer</h5>
+                  <p>{{invoiceObj?.cliente}}</p>
+                </div>
+                <div class="col">
+                  <h5>Year</h5>
+                  <p>{{invoiceObj?.anno}}</p>
+                </div>
+                <div class="col">
+                  <h5>Status</h5>
+                  <p>{{invoiceObj?.stato}}</p>
+                </div>
+                <div class="col">
+                  <h5>Last Update</h5>
+                  <p>{{invoiceObj?.dataUltimaModifica | date:'short'}}</p>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col">
-                <h5>Date</h5>
-                <p>{{invoiceObj?.data}}</p>
-              </div>
-              <div class="col">
-                <h5>Year</h5>
-                <p>{{invoiceObj?.anno}}</p>
-              </div>
-              <div class="col">
-                <h5>Created On</h5>
-                <p>{{invoiceObj?.dataInserimento | date :'short'}}</p>
-              </div>
-              <div class="col">
-                <h5>Last Update</h5>
-                <p>{{invoiceObj?.dataUltimaModifica | date:'short'}}</p>
-              </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container" *ngIf="!list">
-    <form (ngSubmit)="addInvoice()" #f="ngForm">
-      <div class="mb-3">
-        <input
-          type="date"
-          class="form-control"
-          id="data"
-          ngModel
-          name="data"
-          placeholder="date"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="number"
-          class="form-control"
-          id="numero"
-          ngModel
-          name="numero"
-          placeholder="Number invoice"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="number"
-          class="form-control"
-          ngModel
-          name="anno"
-          id="anno"
-          placeholder="year"
-        />
-      </div>
-      <div class="mb-3">
-        <input
-          type="number"
-          class="form-control"
-          ngModel
-          name="importo"
-          id="importo"
-          placeholder="amount"
-        />
-      </div>
-      <div class="mb-3">
-        <select class="form-select" ngModel name="stato">
-          <option selected value="" disabled>Status</option>
-          <option selected value="NON PAGATA">NON PAGATA</option>
-          <option value="PAGATA">PAGATA</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          ngModel
-          name="cliente"
-        >
-          <option selected>Cliente</option>
-          <option value="Giovanni">Giovanni</option>
-        </select>
-      </div>
-      <button type="submit" class="btn">Add</button>
-    </form>
+    <div class="container tableAdd bg-white" *ngIf="!list">
+      <form (ngSubmit)="addInvoice()" #f="ngForm">
+        <div class="mb-3">
+          <input
+            type="date"
+            class="form-control"
+            id="data"
+            ngModel
+            name="data"
+            placeholder="date"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="numero"
+            ngModel
+            name="numero"
+            placeholder="Number invoice"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            class="form-control"
+            ngModel
+            name="anno"
+            id="anno"
+            placeholder="year"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            class="form-control"
+            ngModel
+            name="importo"
+            id="importo"
+            placeholder="amount"
+          />
+        </div>
+        <div class="mb-3">
+          <select class="form-select" ngModel name="stato">
+            <option selected value="" disabled>Status</option>
+            <option selected value="NON PAGATA">NON PAGATA</option>
+            <option value="PAGATA">PAGATA</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            ngModel
+            name="cliente"
+          >
+            <option selected>Cliente</option>
+            <option value="Giovanni">Giovanni</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Add</button>
+      </form>
+    </div>
   </div>
 </div>
