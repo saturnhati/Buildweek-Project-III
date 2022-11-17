@@ -10,17 +10,16 @@ import { InvoicesService } from '../invoices.service';
   styleUrls: ['./invoices.page.scss'],
 })
 export class InvoicesPage implements OnInit {
+
   list: boolean = true;
   @ViewChild('f') mioForm!: NgForm;
   invoiceArr: InterfaceInvoice[] = [];
   invoiceObj!: InterfaceInvoice | null;
-  error = undefined;
+  error: undefined;
   loggedUser!: AuthData | null;
 
   constructor(
-    private invoicesService: InvoicesService,
-    private authService: AuthService
-  ) {}
+    private invoicesService: InvoicesService,private authService: AuthService) {}
 
   ngOnInit(): void {
     this.getInvoices();
