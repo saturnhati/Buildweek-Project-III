@@ -8,18 +8,9 @@
       "age": 20,
       "roles": "admin",
       "id": 1
-    },
-    {
-      "email": "luca@email.com",
-      "password": "$2a$10$ctuu.crggbnd41nPhpT/b.jVwg1q3MfhS2r7Ut7IUB8C2rwMR27sa",
-      "firstname": "Luca",
-      "lastname": "Senatore",
-      "age": 41,
-      "roles": "user",
-      "id": 2
     }
   ],
-  "client": [
+  "customers": [
     {
       "id": 1,
       "ragioneSociale": "Bruno-Romano SPA - TEST",
@@ -42,6 +33,57 @@
         }
       },
       "dataInserimento": "2019-06-01T08:11:01.911+00:00"
+    },
+    {
+      "ragioneSociale": "edffs",
+      "partitaIVA": "dasd",
+      "tipoCliente": "sdsa",
+      "email": "dasds",
+      "pec": "sd",
+      "telefono": "asdsad",
+      "nome": "dsd",
+      "cognome": "sdsadsa",
+      "numeroTelefono": "ds",
+      "Via": "sdasd",
+      "Civico": "sasdsd",
+      "CAP": "dss",
+      "provincia": "sas",
+      "dataInserimento": "1668687970755",
+      "id": 2
+    },
+    {
+      "ragioneSociale": "a",
+      "partitaIVA": "b",
+      "tipoCliente": "c",
+      "email": "l",
+      "pec": "e",
+      "telefono": "f",
+      "nome": "p",
+      "cognome": "h",
+      "numeroTelefono": "i",
+      "Via": "m",
+      "Civico": "n",
+      "CAP": "o",
+      "provincia": "1",
+      "dataInserimento": "1668688153833",
+      "id": 3
+    },
+    {
+      "ragioneSociale": "a",
+      "partitaIva": "b",
+      "tipoCliente": "c",
+      "email": "d",
+      "pec": "e",
+      "telefono": "sc",
+      "nome": "xcx",
+      "cognome": "sdx",
+      "numeroTelefono": "cxcas",
+      "Via": "scxxz",
+      "Civico": "cx",
+      "CAP": "ccxx",
+      "provincia": "cz",
+      "dataInserimento": "1668688488042",
+      "id": 4
     }
   ],
   "invoices": [

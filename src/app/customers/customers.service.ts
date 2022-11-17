@@ -5,16 +5,19 @@ import { IClient } from './interface-invoice.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class CostomersService {
+export class CustomersService {
 
   constructor(private http: HttpClient) {}
 
   costomersArr : IClient[] = []
 
-  addCostomers(obj : IClient){
+  addCustomers(obj : IClient){
     return this.http.post<IClient>('http://localhost:3000/customers', obj)
   }
-  deleteCostomers(obj: IClient){
-    return this.http.delete<IClient>('http://localhost:3000/customers' + obj.id)
+  deleteCustomers(obj: IClient){
+    return this.http.delete<IClient>('http://localhost:3000/customers/' + obj.id)
+  }
+  getCustomers(){
+    return this.http.get<IClient[]>('http://localhost:3000/customers')
   }
 }

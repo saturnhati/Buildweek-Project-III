@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CostomersService } from '../costomers.service';
+import { CustomersService } from '../customers.service';
 import { IClient } from '../interface-invoice.interface';
 
 
@@ -12,12 +12,19 @@ export class CustomersPage implements OnInit {
 
   list :boolean = true
   @ViewChild('f') mioForm! : NgForm;
-  costomersArr : IClient[]= [];
+  customersArr : IClient[]= [];
   error: undefined
 
-  constructor(private interfacecostomers : CostomersService) { }
+  constructor(private customersService : CustomersService) { }
 
   ngOnInit(): void {
+    this.getCustomers()
+  }
+
+  getCustomers() {
+    this.customersService
+      .getCustomers()
+      .subscribe((data) => (this.customersArr = data));
   }
 
   viewList() {
@@ -27,16 +34,17 @@ export class CustomersPage implements OnInit {
   viewForm() {
     this.list = false;
   }
-  addCostomers(){
-  let obj : IClient = this.mioForm.value
-  this.interfacecostomers.addCostomers(obj).subscribe(
-    costomer => {this.costomersArr.push(costomer)},
-    err => {this.error = err, console.log(this.error) }
-  )  
+  addCustomers(){
+  let obj : IClient = this.mioForm.value;
+  console.log(obj)
+  obj.dataInserimento = JSON.stringify(Date.now());
+  this.customersService.addCustomers(obj).subscribe(
+    (customer) => {this.customersArr.push(customer)},
+    (err) => {this.error = err, console.log(this.error) });
   }
-  deleteCostomers(costomer : IClient){
-    this.interfacecostomers.deleteCostomers(costomer)
-    let index = this.costomersArr.indexOf(costomer)
-    this.costomersArr.splice(index, 1)
+  deleteCustomers(customer : IClient){
+    this.customersService.deleteCustomers(customer)
+    let index = this.customersArr.indexOf(customer)
+    this.customersArr.splice(index, 1)
   }
 }
