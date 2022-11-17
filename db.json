@@ -92,7 +92,7 @@
       "numero": 2,
       "anno": 2022,
       "importo": 1000,
-      "stato": "NON PAGATA",
+      "stato": "PAGATA",
       "cliente": "Giovanni",
       "dataInserimento": "\"2022-11-16T15:25:46.311Z\"",
       "dataUltimaModifica": "\"2022-11-16T15:25:46.311Z\"",
@@ -130,6 +130,39 @@
       "dataInserimento": "1668683486378",
       "dataUltimaModifica": "1668683486378",
       "id": 5
+    },
+    {
+      "data": "2022-11-17",
+      "numero": 4,
+      "anno": 2022,
+      "importo": 920,
+      "stato": "NON PAGATA",
+      "cliente": "Bruno-Romano SPA - TEST",
+      "dataInserimento": "1668702231129",
+      "dataUltimaModifica": "1668702231129",
+      "id": 6
+    },
+    {
+      "data": "2022-11-18",
+      "numero": 3,
+      "anno": 2022,
+      "importo": 920,
+      "stato": "NON PAGATA",
+      "cliente": "Bruno-Romano SPA - TEST",
+      "dataInserimento": "1668707277683",
+      "dataUltimaModifica": "1668707277683",
+      "id": 7
+    },
+    {
+      "data": "2022-11-17",
+      "numero": 13,
+      "importo": 920,
+      "stato": "NON PAGATA",
+      "cliente": "edffs",
+      "dataInserimento": "1668707498218",
+      "dataUltimaModifica": "1668707498218",
+      "anno": 2022,
+      "id": 8
     }
   ]
 }
