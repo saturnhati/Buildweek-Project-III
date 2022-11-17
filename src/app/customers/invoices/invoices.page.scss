@@ -21,3 +21,13 @@ li {
 .form-select {
     color: #727272;
 }
+
+tbody {
+    tr {
+        background-color: mediumorchid;
+    }
+}
+
+div.modal {
+    --bs-modal-width: 700px;
+}

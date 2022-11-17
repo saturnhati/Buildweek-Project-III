@@ -6,6 +6,9 @@ import { InvoicesPage } from './invoices/invoices.page';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UserGuard } from '../auth/user.guard';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 const routes: Routes = [
   {
@@ -24,7 +27,7 @@ const Components = [CustomersPage, InvoicesPage];
 
 @NgModule({
   declarations: [...Components],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, NgbAccordionModule],
   exports: [...Components],
 })
 export class CustomersModule {}

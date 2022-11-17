@@ -8,6 +8,15 @@
       "age": 20,
       "roles": "admin",
       "id": 1
+    },
+    {
+      "email": "luca@email.com",
+      "password": "$2a$10$ctuu.crggbnd41nPhpT/b.jVwg1q3MfhS2r7Ut7IUB8C2rwMR27sa",
+      "firstname": "Luca",
+      "lastname": "Senatore",
+      "age": 41,
+      "roles": "user",
+      "id": 2
     }
   ],
   "client": [
@@ -37,17 +46,48 @@
   ],
   "invoices": [
     {
-      "id": 1,
-      "data": "2020-03-31T00:49:25.713+00:00",
-      "numero": 1,
+      "data": "2022-11-16",
+      "numero": 2,
+      "anno": 2022,
+      "importo": 1000,
+      "stato": "NON PAGATA",
+      "cliente": "Giovanni",
+      "dataInserimento": "\"2022-11-16T15:25:46.311Z\"",
+      "dataUltimaModifica": "\"2022-11-16T15:25:46.311Z\"",
+      "id": 2
+    },
+    {
+      "data": "2022-11-17",
+      "numero": 5,
       "anno": 2020,
-      "importo": 2289.24,
-      "stato": "PAGATA",
-      "cliente": {
-        "id": 1
-      },
-      "dataInserimento": "2019-06-01T08:11:01.911+00:00",
-      "dataUltimaModifica": "2021-03-24T21:32:06.375+00:00"
+      "importo": 1200,
+      "stato": "NON PAGATA",
+      "cliente": "Giovanni",
+      "dataInserimento": "\"2022-11-16T18:04:40.632Z\"",
+      "dataUltimaModifica": "\"2022-11-16T18:04:40.632Z\"",
+      "id": 3
+    },
+    {
+      "data": "2022-11-17",
+      "numero": 10,
+      "anno": 2020,
+      "importo": 1200,
+      "stato": "NON PAGATA",
+      "cliente": "Giovanni",
+      "dataInserimento": "1668683055516",
+      "dataUltimaModifica": "1668683055516",
+      "id": 4
+    },
+    {
+      "data": "2022-11-17",
+      "numero": 3,
+      "anno": 3,
+      "importo": 3,
+      "stato": "NON PAGATA",
+      "cliente": "Giovanni",
+      "dataInserimento": "1668683486378",
+      "dataUltimaModifica": "1668683486378",
+      "id": 5
     }
   ]
 }

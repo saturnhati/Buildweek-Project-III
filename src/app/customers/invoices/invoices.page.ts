@@ -13,6 +13,7 @@ export class InvoicesPage implements OnInit {
   list: boolean = true;
   @ViewChild('f') mioForm!: NgForm;
   invoiceArr: InterfaceInvoice[] = [];
+  invoiceObj!: InterfaceInvoice | null;
   error = undefined;
   loggedUser!: AuthData | null;
 
@@ -42,8 +43,8 @@ export class InvoicesPage implements OnInit {
 
   addInvoice() {
     let obj: InterfaceInvoice = this.mioForm.value;
-    obj.dataInserimento = JSON.stringify(new Date());
-    obj.dataUltimaModifica = JSON.stringify(new Date());
+    obj.dataInserimento = JSON.stringify(Date.now());
+    obj.dataUltimaModifica = JSON.stringify(Date.now());
     this.invoicesService.addInvoice(obj).subscribe(
       (data) => {
         this.invoiceArr.push(data);
@@ -86,6 +87,12 @@ export class InvoicesPage implements OnInit {
           (this.error = err), console.log(this.error);
         }
       );
+  }
+
+  showDetails(invoice: InterfaceInvoice) {
+    this.invoiceObj = invoice;
+    console.log(this.invoiceObj)
+    console.log(invoice)
   }
 
   logout(user: AuthData) {

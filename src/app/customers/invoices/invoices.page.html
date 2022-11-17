@@ -75,11 +75,92 @@
               Mark as Unpaid</button
             ><button class="btn-sm" (click)="deleteInvoice(invoice)">
               Delete</button
-            ><button class="btn-sm"><details></details></button>
+            ><button
+              class="btn-sm"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              (click)="showDetails(invoice)"
+            >
+              Details
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Modal title
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col">
+                <h5>Invoice #</h5>
+                <p>{{invoiceObj?.numero}}</p>
+              </div>
+              <div class="col">
+                <h5>Customer</h5>
+                <p>{{invoiceObj?.cliente}}</p>
+              </div>
+              <div class="col">
+                <h5>Total</h5>
+                <p>{{invoiceObj?.importo}}</p>
+              </div>
+              <div class="col">
+                <h5>Status</h5>
+                <p>{{invoiceObj?.stato}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h5>Date</h5>
+                <p>{{invoiceObj?.data}}</p>
+              </div>
+              <div class="col">
+                <h5>Year</h5>
+                <p>{{invoiceObj?.anno}}</p>
+              </div>
+              <div class="col">
+                <h5>Created On</h5>
+                <p>{{invoiceObj?.dataInserimento | date :'short'}}</p>
+              </div>
+              <div class="col">
+                <h5>Last Update</h5>
+                <p>{{invoiceObj?.dataUltimaModifica | date:'short'}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="container" *ngIf="!list">
