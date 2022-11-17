@@ -15,6 +15,9 @@ export class CustomersService {
     return this.http.post<IClient>('http://localhost:3000/customers', obj)
   }
   deleteCustomers(obj: IClient){
-    return this.http.delete<IClient>('http://localhost:3000/customers' + obj.id)
+    return this.http.delete<IClient>('http://localhost:3000/customers/' + obj.id)
+  }
+  getCustomers(){
+    return this.http.get<IClient[]>('http://localhost:3000/customers')
   }
 }

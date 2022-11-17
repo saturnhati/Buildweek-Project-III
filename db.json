@@ -19,7 +19,7 @@
       "id": 2
     }
   ],
-  "client": [
+  "customers": [
     {
       "id": 1,
       "ragioneSociale": "Bruno-Romano SPA - TEST",
@@ -42,6 +42,57 @@
         }
       },
       "dataInserimento": "2019-06-01T08:11:01.911+00:00"
+    },
+    {
+      "ragioneSociale": "edffs",
+      "partitaIVA": "dasd",
+      "tipoCliente": "sdsa",
+      "email": "dasds",
+      "pec": "sd",
+      "telefono": "asdsad",
+      "nome": "dsd",
+      "cognome": "sdsadsa",
+      "numeroTelefono": "ds",
+      "Via": "sdasd",
+      "Civico": "sasdsd",
+      "CAP": "dss",
+      "provincia": "sas",
+      "dataInserimento": "1668687970755",
+      "id": 2
+    },
+    {
+      "ragioneSociale": "a",
+      "partitaIVA": "b",
+      "tipoCliente": "c",
+      "email": "l",
+      "pec": "e",
+      "telefono": "f",
+      "nome": "p",
+      "cognome": "h",
+      "numeroTelefono": "i",
+      "Via": "m",
+      "Civico": "n",
+      "CAP": "o",
+      "provincia": "1",
+      "dataInserimento": "1668688153833",
+      "id": 3
+    },
+    {
+      "ragioneSociale": "a",
+      "partitaIva": "b",
+      "tipoCliente": "c",
+      "email": "d",
+      "pec": "e",
+      "telefono": "sc",
+      "nome": "xcx",
+      "cognome": "sdx",
+      "numeroTelefono": "cxcas",
+      "Via": "scxxz",
+      "Civico": "cx",
+      "CAP": "ccxx",
+      "provincia": "cz",
+      "dataInserimento": "1668688488042",
+      "id": 4
     }
   ],
   "invoices": [
@@ -57,6 +108,17 @@
       },
       "dataInserimento": "2019-06-01T08:11:01.911+00:00",
       "dataUltimaModifica": "2021-03-24T21:32:06.375+00:00"
+    },
+    {
+      "data": "2022-11-16",
+      "numero": 3,
+      "anno": 2,
+      "importo": 2,
+      "stato": "PAGATA",
+      "cliente": "Giovanni",
+      "dataInserimento": "\"2022-11-17T12:05:02.254Z\"",
+      "dataUltimaModifica": "\"2022-11-17T12:05:02.254Z\"",
+      "id": 2
     }
   ]
 }

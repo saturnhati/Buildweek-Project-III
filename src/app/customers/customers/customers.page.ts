@@ -15,9 +15,16 @@ export class CustomersPage implements OnInit {
   customersArr : IClient[]= [];
   error: undefined
 
-  constructor(private interfacecustomers : CustomersService) { }
+  constructor(private customersService : CustomersService) { }
 
   ngOnInit(): void {
+    this.getCustomers()
+  }
+
+  getCustomers() {
+    this.customersService
+      .getCustomers()
+      .subscribe((data) => (this.customersArr = data));
   }
 
   viewList() {
@@ -28,15 +35,16 @@ export class CustomersPage implements OnInit {
     this.list = false;
   }
   addCustomers(){
-  let obj : IClient = this.mioForm.value
-  this.interfacecustomers.addCustomers(obj).subscribe(
-    customer => {this.customersArr.push(customer)},
-    err => {this.error = err, console.log(this.error) }
-  )  
+  let obj : IClient = this.mioForm.value;
+  console.log(obj)
+  obj.dataInserimento = JSON.stringify(Date.now());
+  this.customersService.addCustomers(obj).subscribe(
+    (customer) => {this.customersArr.push(customer)},
+    (err) => {this.error = err, console.log(this.error) });
   }
-  deleteCustomers(costomer : IClient){
-    this.interfacecustomers.deleteCustomers(costomer)
-    let index = this.customersArr.indexOf(costomer)
+  deleteCustomers(customer : IClient){
+    this.customersService.deleteCustomers(customer)
+    let index = this.customersArr.indexOf(customer)
     this.customersArr.splice(index, 1)
   }
 }
