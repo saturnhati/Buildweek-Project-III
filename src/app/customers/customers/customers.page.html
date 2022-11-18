@@ -112,8 +112,8 @@
       </div>
     </div>
   </div>
-<div class="container tableAdd bg-white" *ngIf="!list">
-  <form (ngSubmit)="addCustomers()" #f="ngForm">
+<div class="container-fluid tableAdd mx-3 p-5 d-flex justify-content-center" *ngIf="!list">
+  <form (ngSubmit)="addCustomers()" #f="ngForm" class="tabella p-5 w-75">
     <h1 class="fs-4">Inserisci i tuoi dati:</h1>
     <div class="container-dati">
     <div class="mb-3 customers-item">
@@ -170,7 +170,7 @@
         </div>
       </div>
     <div>
-      <button type="submit" class="btn">Add</button>
+      <button type="submit" class="btn float-end">Add</button>
     </div>
   </form>
 </div>

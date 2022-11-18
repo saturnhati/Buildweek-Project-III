@@ -1,15 +1,15 @@
 .main-content {
-.container-all{
-    padding: 0;
-    display: flex;
-    height: calc(100vh - 145px);
-    overflow-y: scroll;
-.sidebar {
-    width: 210px;
-    height: calc(100vh - 145px);
-    border-radius: 8px;
-    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
-}
+    .container-all{
+        padding: 0;
+        display: flex;
+        height: calc(100vh - 145px);
+        overflow-y: scroll;
+    .sidebar {
+        width: 210px;
+        height: calc(100vh - 145px);
+        border-radius: 8px;
+        box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+    }
 h1 {
     color: #ff8d43;
 }
@@ -31,6 +31,7 @@ li {
 .tableList {
     border-radius: 8px;
     box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+    
     .table {
         border-collapse: separate;
         border-spacing: 0 1rem;
@@ -59,18 +60,12 @@ tbody {
             font-weight: 500;
         }
         .btn:nth-of-type(1) {
-            background-color: #A6D2D7;
-        }
-        .btn:nth-of-type(2) {
-            background-color: #377374;
-        }
-        .btn:nth-of-type(3) {
             background-color: gray;
         }
-        .btn:nth-of-type(3):hover {
+        .btn:nth-of-type(1):hover {
             background-color: #377374;
         }
-        .btn:nth-of-type(4):hover {
+        .btn:nth-of-type(2):hover {
             background-color: #d87639;
         }
     }
@@ -92,6 +87,15 @@ div.modal {
     height: calc(100vh - 145px);
     border-radius: 8px;
     box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+    background-color: rgb(255 255 255 / 0.7);
+    h1{
+        font-weight: bold;
+    }
+.btn{
+    background-color: #ff8d43;
+      color: white;
+      font-weight: 500;
+}
 .form-select {
     color: #727272;
 }

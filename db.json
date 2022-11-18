@@ -163,6 +163,28 @@
       "dataUltimaModifica": "1668707498218",
       "anno": 2022,
       "id": 8
+    },
+    {
+      "numero": "",
+      "importo": "",
+      "data": "",
+      "stato": "",
+      "cliente": "",
+      "dataInserimento": "1668779129330",
+      "dataUltimaModifica": "1668779129330",
+      "anno": 2022,
+      "id": 9
+    },
+    {
+      "numero": null,
+      "importo": null,
+      "data": null,
+      "stato": null,
+      "cliente": null,
+      "dataInserimento": "1668779130170",
+      "dataUltimaModifica": "1668779130170",
+      "anno": 2022,
+      "id": 10
     }
   ]
 }
