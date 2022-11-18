@@ -92,7 +92,7 @@
       "numero": 2,
       "anno": 2022,
       "importo": 1000,
-      "stato": "PAGATA",
+      "stato": "NON PAGATA",
       "cliente": "Giovanni",
       "dataInserimento": "\"2022-11-16T15:25:46.311Z\"",
       "dataUltimaModifica": "\"2022-11-16T15:25:46.311Z\"",
