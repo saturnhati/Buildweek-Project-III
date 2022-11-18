@@ -3,9 +3,9 @@
     {
       "email": "admin@admin.com",
       "password": "$2a$10$urPGAf6IQzr0/jClX5nFNuHoKW0snbbxMlySvcXTFg0OkDqIQRqNy",
-      "firstname": "admin",
-      "lastname": "admin",
-      "age": 20,
+      "firstname": "Emanuele",
+      "lastname": "Umberto",
+      "age": 35,
       "roles": "admin",
       "id": 1
     }
@@ -13,16 +13,16 @@
   "customers": [
     {
       "id": 1,
-      "ragioneSociale": "Bruno-Romano SPA - TEST",
-      "partitaIva": "14812266616",
+      "ragioneSociale": "Bruno-Romano SPA",
+      "partitaIva": "00476410010",
       "tipoCliente": "SRL",
-      "email": "rosalino.caruso@gmail.com",
-      "pec": "antonio.damico@gmail.com",
+      "email": "brunoromano@gmail.com",
+      "pec": "brunoromanopec@gmail.com",
       "telefono": "+38 855 62 44 5685",
       "nomeContatto": "Sarita",
       "cognomeContatto": "Serr",
-      "telefonoContatto": "380.260.3225",
-      "emailContatto": "armando.martinelli@hotmail.com",
+      "telefonoContatto": "380 2603 225",
+      "emailContatto": "sarita.sarr@hotmail.com",
       "indirizzoSede": {
         "via": "Contrada Gastone 4, Piano 4",
         "civico": "698",
@@ -33,114 +33,19 @@
         }
       },
       "dataInserimento": "2019-06-01T08:11:01.911+00:00"
-    },
-    {
-      "ragioneSociale": "edffs",
-      "partitaIVA": "dasd",
-      "tipoCliente": "sdsa",
-      "email": "dasds",
-      "pec": "sd",
-      "telefono": "asdsad",
-      "nome": "dsd",
-      "cognome": "sdsadsa",
-      "numeroTelefono": "ds",
-      "Via": "sdasd",
-      "Civico": "sasdsd",
-      "CAP": "dss",
-      "provincia": "sas",
-      "dataInserimento": "1668687970755",
-      "id": 2
-    },
-    {
-      "ragioneSociale": "a",
-      "partitaIVA": "b",
-      "tipoCliente": "c",
-      "email": "l",
-      "pec": "e",
-      "telefono": "f",
-      "nome": "p",
-      "cognome": "h",
-      "numeroTelefono": "i",
-      "Via": "m",
-      "Civico": "n",
-      "CAP": "o",
-      "provincia": "1",
-      "dataInserimento": "1668688153833",
-      "id": 3
-    },
-    {
-      "ragioneSociale": "a",
-      "partitaIva": "b",
-      "tipoCliente": "c",
-      "email": "d",
-      "pec": "e",
-      "telefono": "sc",
-      "nome": "xcx",
-      "cognome": "sdx",
-      "numeroTelefono": "cxcas",
-      "Via": "scxxz",
-      "Civico": "cx",
-      "CAP": "ccxx",
-      "provincia": "cz",
-      "dataInserimento": "1668688488042",
-      "id": 4
     }
   ],
   "invoices": [
     {
       "data": "2022-11-16",
-      "numero": 2,
+      "numero": 1,
       "anno": 2022,
-      "importo": 1000,
+      "importo": 1350,
       "stato": "NON PAGATA",
-      "cliente": "Giovanni",
+      "cliente": "Luca",
       "dataInserimento": "\"2022-11-16T15:25:46.311Z\"",
       "dataUltimaModifica": "1668786560506",
-      "id": 2
-    },
-    {
-      "data": "2022-11-17",
-      "numero": 5,
-      "anno": 2020,
-      "importo": 1200,
-      "stato": "NON PAGATA",
-      "cliente": "Giovanni",
-      "dataInserimento": "\"2022-11-16T18:04:40.632Z\"",
-      "dataUltimaModifica": "1668786561290",
-      "id": 3
-    },
-    {
-      "data": "2022-11-17",
-      "numero": 10,
-      "anno": 2020,
-      "importo": 1200,
-      "stato": "PAGATA",
-      "cliente": "Giovanni",
-      "dataInserimento": "1668683055516",
-      "dataUltimaModifica": "1668683055516",
-      "id": 4
-    },
-    {
-      "data": "2022-11-17",
-      "numero": 3,
-      "anno": 3,
-      "importo": 3,
-      "stato": "PAGATA",
-      "cliente": "Giovanni",
-      "dataInserimento": "1668683486378",
-      "dataUltimaModifica": "1668683486378",
-      "id": 5
-    },
-    {
-      "data": "2022-11-18",
-      "numero": 3,
-      "anno": 2022,
-      "importo": 920,
-      "stato": "PAGATA",
-      "cliente": "Bruno-Romano SPA - TEST",
-      "dataInserimento": "1668707277683",
-      "dataUltimaModifica": "1668707277683",
-      "id": 7
+      "id": 1
     }
   ]
 }
