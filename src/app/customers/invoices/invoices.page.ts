@@ -1,18 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { AuthData, AuthService } from 'src/app/auth/auth.service';
 import { IClient, InterfaceInvoice } from '../interface-invoice.interface';
 import { InvoicesService } from '../invoices.service';
-import { CustomersService} from '../customers.service'
+import { CustomersService } from '../customers.service';
 
 @Component({
   templateUrl: './invoices.page.html',
   styleUrls: ['./invoices.page.scss'],
 })
 export class InvoicesPage implements OnInit {
-
   list: boolean = true;
   @ViewChild('f') mioForm!: NgForm;
+  @ViewChild('form') form2!: NgForm;
   invoiceArr: InterfaceInvoice[] = [];
   customerArr: IClient[] = [];
   invoiceObj!: InterfaceInvoice | null;
@@ -27,7 +27,9 @@ export class InvoicesPage implements OnInit {
 
   ngOnInit(): void {
     this.getInvoices();
-    this.customersService.getCustomers().subscribe((data) => (this.customerArr = data));
+    this.customersService
+      .getCustomers()
+      .subscribe((data) => (this.customerArr = data));
     this.loggedUser = this.authService.getIsLogged();
   }
 
@@ -49,7 +51,7 @@ export class InvoicesPage implements OnInit {
     let obj: InterfaceInvoice = this.mioForm.value;
     obj.dataInserimento = JSON.stringify(Date.now());
     obj.dataUltimaModifica = JSON.stringify(Date.now());
-    obj.anno = new Date().getFullYear()
+    obj.anno = new Date().getFullYear();
     this.invoicesService.addInvoice(obj).subscribe(
       (data) => {
         this.invoiceArr.push(data);
@@ -58,7 +60,7 @@ export class InvoicesPage implements OnInit {
         (this.error = err), console.log(this.error);
       }
     );
-    this.mioForm.reset()
+    this.mioForm.reset();
   }
 
   deleteInvoice(invoice: InterfaceInvoice) {
@@ -75,56 +77,30 @@ export class InvoicesPage implements OnInit {
         .updateInvoice({ stato: 'PAGATA' }, invoice.id)
         .subscribe(
           (data) => {
-            console.log(data), this.getInvoices();
+            this.getInvoices();
           },
           (err) => {
             (this.error = err), console.log(this.error);
           }
         );
-    } else if (invoice.stato === 'PAGATA') {
+    } else {
       this.invoicesService
         .updateInvoice({ stato: 'NON PAGATA' }, invoice.id)
         .subscribe(
           (data) => {
-            console.log(data), this.getInvoices();
+            this.getInvoices();
           },
           (err) => {
             (this.error = err), console.log(this.error);
           }
         );
-    } 
-  }
-  
-  paidInvoice(invoice: InterfaceInvoice) {
-    this.invoicesService
-      .updateInvoice({ stato: 'PAGATA' }, invoice.id)
-      .subscribe(
-        (data) => {
-          console.log(data), this.getInvoices();
-        },
-        (err) => {
-          (this.error = err), console.log(this.error);
-        }
-      );
-  }
-
-  unpaidInvoice(invoice: InterfaceInvoice) {
-    this.invoicesService
-      .updateInvoice({ stato: 'NON PAGATA' }, invoice.id)
-      .subscribe(
-        (data) => {
-          (data.stato = 'NON PAGATA'), console.log(data), this.getInvoices();
-        },
-        (err) => {
-          (this.error = err), console.log(this.error);
-        }
-      );
+    }
   }
 
   showDetails(invoice: InterfaceInvoice) {
     this.invoiceObj = invoice;
-    console.log(this.invoiceObj)
-    console.log(invoice)
+    console.log(this.invoiceObj);
+    console.log(invoice);
   }
 
   logout(user: AuthData) {

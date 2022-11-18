@@ -14,22 +14,22 @@ export class CustomersPage implements OnInit {
   @ViewChild('f') mioForm!: NgForm;
   customersArr: IClient[] = [];
   error: undefined;
-
-  list :boolean = true
-  @ViewChild('f') mioForm! : NgForm;
-  customersArr : IClient[]= [];
   customersObj!: IClient | null;
-  error: undefined;
   loggedUser!: AuthData | null;
 
-  constructor(private customersService : CustomersService, private authService: AuthService) { }
+  constructor(
+    private customersService: CustomersService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.getCustomers();
     this.loggedUser = this.authService.getIsLogged();
   }
   getCustomers() {
-    this.customersService.getCustomers().subscribe((data) => (this.customersArr = data));
+    this.customersService
+      .getCustomers()
+      .subscribe((data) => (this.customersArr = data));
   }
   viewList() {
     this.list = true;
@@ -57,11 +57,13 @@ export class CustomersPage implements OnInit {
   }
   showDetails(custumer: IClient) {
     this.customersObj = custumer;
-    console.log(this.customersObj)
-    console.log(custumer)
+    console.log(this.customersObj);
+    console.log(custumer);
   }
   getCustomer() {
-    this.customersService.getCustomers().subscribe((customer) => (this.customersArr = customer));
+    this.customersService
+      .getCustomers()
+      .subscribe((customer) => (this.customersArr = customer));
   }
   logout(user: AuthData) {
     this.authService.logout();
