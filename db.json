@@ -37,15 +37,15 @@
   ],
   "invoices": [
     {
-      "data": "2022-11-16",
-      "numero": 1,
-      "anno": 2022,
-      "importo": 1350,
+      "numero": 2,
+      "importo": 460,
+      "data": "2022-11-18",
       "stato": "NON PAGATA",
-      "cliente": "Luca",
-      "dataInserimento": "\"2022-11-16T15:25:46.311Z\"",
-      "dataUltimaModifica": "1668786560506",
-      "id": 1
+      "cliente": "Bruno-Romano SPA",
+      "dataInserimento": "1668787070469",
+      "dataUltimaModifica": "1668787074092",
+      "anno": 2022,
+      "id": 2
     }
   ]
 }
