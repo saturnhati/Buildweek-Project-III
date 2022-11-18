@@ -1,10 +1,14 @@
-<div class="main-content my-3 ms-3">
-  <div class="container-all">
-    <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
+<div class="main-content my-3 ms-xl-3 mx-3">
+  <div class="container-all d-flex flex-column flex-xl-row">
+    <div
+      class="sidebar d-flex flex-row flex-xl-column flex-shrink-0 p-3 bg-light"
+    >
       <h1 class="fs-4 text-center">Menu</h1>
 
       <hr />
-      <ul class="nav nav-pills flex-column mb-auto align-items-center">
+      <ul
+        class="nav nav-pills flex-row flex-xl-column mb-auto align-items-center"
+      >
         <li class="nav-item">
           <button class="btn nav-link active" (click)="viewList()">
             Invoices List
@@ -40,16 +44,16 @@
       </div>
     </div>
 
-    <div class="container tableList bg-light mx-3" *ngIf="list">
+    <div class="container-fluid tableList bg-light mx-3" *ngIf="list">
       <table class="table table-borderless text-center">
         <thead>
           <tr>
-            <th scope="col">Nr°</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Importo</th>
-            <th scope="col">Stato</th>
-            <th scope="col">Data</th>
-            <th scope="col"></th>
+            <th scope="col" class="col-1">Nr°</th>
+            <th scope="col" class="col-1">Cliente</th>
+            <th scope="col" class="col-1">Importo</th>
+            <th scope="col" class="col-1">Stato</th>
+            <th scope="col" class="col-1">Data</th>
+            <th scope="col" class="col-1"></th>
           </tr>
         </thead>
         <tbody>
@@ -59,11 +63,13 @@
             <td scope="row" class="righeAbbassate">
               {{invoice.importo}}&euro;
             </td>
-            <td scope="row" class="righeAbbassate">{{invoice.stato}}</td>
-            <td scope="row" class="righeAbbassate">{{invoice.data}}</td>
-            <td scope="row">
-              <div class="float-end">
-                <div class="form-check form-switch d-inline">
+            <td scope="row" class="righeAbbassate">
+              <span
+                class="d-flex flex-column flex-xl-row justify-content-xl-between"
+                >{{invoice.stato}}
+                <div
+                  class="form-check form-switch d-inline ms-5 ps-5 mx-xl-0 px-xl-0"
+                >
                   <input
                     class="form-check-input"
                     type="checkbox"
@@ -82,10 +88,14 @@
                     checked
                     *ngIf="invoice.stato === 'PAGATA'"
                     (change)="(invoicePayment(invoice))"
-                  />
-                </div>
+                  /></div
+              ></span>
+            </td>
+            <td scope="row" class="righeAbbassate">{{invoice.data}}</td>
+            <td scope="row">
+              <div class="float-xl-end d-flex flex-column flex-xl-row">
                 <button
-                  class="btn btn-sm mx-1"
+                  class="btn btn-sm mx-1 mb-1 mb-xl-0"
                   (click)="deleteInvoice(invoice)"
                 >
                   Delete</button
@@ -129,8 +139,10 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body ps-4">
-              <div class="row">
+            <div
+              class="modal-body ps-4 d-flex justify-content-evenly d-md-block"
+            >
+              <div class="row d-flex flex-column flex-md-row">
                 <div class="col">
                   <h5>Invoice #</h5>
                   <p>{{invoiceObj?.numero}}</p>
@@ -148,7 +160,7 @@
                   <p>{{invoiceObj?.dataInserimento | date :'short' }}</p>
                 </div>
               </div>
-              <div class="row secondaRigaModale">
+              <div class="row secondaRigaModale d-flex flex-column flex-md-row">
                 <div class="col">
                   <h5>Customer</h5>
                   <p>{{invoiceObj?.cliente}}</p>
@@ -182,7 +194,7 @@
     </div>
 
     <div
-      class="container-fluid tableAdd mx-3 p-5 d-flex justify-content-center"
+      class="container-fluid tableAdd mx-3 p-0 p-md-5 d-flex justify-content-center"
       *ngIf="!list"
     >
       <form (ngSubmit)="addInvoice()" #f="ngForm" class="tabella p-5 w-75">
@@ -195,6 +207,7 @@
               ngModel
               name="numero"
               placeholder="Number invoice"
+              required
             />
           </div>
           <div class="mb-3 primaRigaForm">
@@ -205,6 +218,7 @@
               name="importo"
               id="importo"
               placeholder="Amount"
+              required
             />
           </div>
           <div class="mb-3 primaRigaForm">
@@ -215,11 +229,13 @@
               ngModel
               name="data"
               placeholder="date"
+              max="{{data}}"
+              required
             />
           </div>
         </div>
         <div class="mb-3">
-          <select class="form-select" ngModel name="stato">
+          <select class="form-select" ngModel name="stato" required>
             <option selected value="" disabled>Status</option>
             <option selected value="NON PAGATA">NON PAGATA</option>
             <option value="PAGATA">PAGATA</option>
@@ -231,6 +247,7 @@
             aria-label="Default select example"
             ngModel
             name="cliente"
+            required
           >
             <option selected value="" disabled>Cliente</option>
             <option
@@ -242,7 +259,9 @@
             </option>
           </select>
         </div>
-        <button type="submit" class="btn float-end">Add</button>
+        <button type="submit" class="btn float-end" [disabled]="f.invalid">
+          Add
+        </button>
       </form>
     </div>
   </div>

@@ -1,15 +1,32 @@
 .main-content {
   .container-all {
     padding: 0;
-    display: flex;
+    @media screen and (max-width: 1199px) {
+      align-items: center;
+    }
     .sidebar {
       width: 210px;
       height: calc(100vh - 145px);
       border-radius: 8px;
       box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+      @media screen and (max-width: 1199px) {
+        justify-content: space-around;
+        width: 500px;
+        height: 10vh;
+        margin-bottom: 1rem;
+      }
     }
     h1 {
       color: #ff8d43;
+      @media screen and (max-width: 1199px) {
+        align-self: center;
+      }
+    }
+    ul {
+      @media screen and (max-width: 1199px) {
+        margin: 0rem !important;
+        flex-wrap: nowrap;
+      }
     }
     li {
       margin-bottom: 4px;
@@ -23,6 +40,15 @@
       }
       button.btn {
         width: 100%;
+        @media screen and (max-width: 1199px) {
+          width: 120px;
+          margin: auto 5px;
+        }
+      }
+    }
+    .sidebar .dropdown {
+      @media screen and (max-width: 1199px) {
+        align-self: center;
       }
     }
   }
@@ -88,6 +114,7 @@
       }
     }
   }
+
   .tableAdd {
     border-radius: 8px;
     box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
@@ -102,6 +129,9 @@
       background-color: #ff8d43;
       color: white;
       font-weight: 500;
+    }
+    .btn:hover {
+      background-color: #d87639;
     }
   }
 }

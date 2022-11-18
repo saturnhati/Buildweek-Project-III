@@ -88,28 +88,6 @@
   ],
   "invoices": [
     {
-      "data": "2022-11-16",
-      "numero": 2,
-      "anno": 2022,
-      "importo": 1000,
-      "stato": "NON PAGATA",
-      "cliente": "Giovanni",
-      "dataInserimento": "\"2022-11-16T15:25:46.311Z\"",
-      "dataUltimaModifica": "\"2022-11-16T15:25:46.311Z\"",
-      "id": 2
-    },
-    {
-      "data": "2022-11-17",
-      "numero": 5,
-      "anno": 2020,
-      "importo": 1200,
-      "stato": "PAGATA",
-      "cliente": "Giovanni",
-      "dataInserimento": "\"2022-11-16T18:04:40.632Z\"",
-      "dataUltimaModifica": "\"2022-11-16T18:04:40.632Z\"",
-      "id": 3
-    },
-    {
       "data": "2022-11-17",
       "numero": 10,
       "anno": 2020,
@@ -136,10 +114,10 @@
       "numero": 4,
       "anno": 2022,
       "importo": 920,
-      "stato": "PAGATA",
+      "stato": "NON PAGATA",
       "cliente": "Bruno-Romano SPA - TEST",
       "dataInserimento": "1668702231129",
-      "dataUltimaModifica": "1668702231129",
+      "dataUltimaModifica": "1668779099245",
       "id": 6
     },
     {
@@ -157,12 +135,23 @@
       "data": "2022-11-17",
       "numero": 13,
       "importo": 920,
-      "stato": "NON PAGATA",
+      "stato": "PAGATA",
       "cliente": "edffs",
       "dataInserimento": "1668707498218",
       "dataUltimaModifica": "1668707498218",
       "anno": 2022,
       "id": 8
+    },
+    {
+      "numero": 1,
+      "importo": 1,
+      "data": "2022-11-18",
+      "stato": "NON PAGATA",
+      "cliente": "Bruno-Romano SPA - TEST",
+      "dataInserimento": "1668781290867",
+      "dataUltimaModifica": "1668781290867",
+      "anno": 2022,
+      "id": 9
     }
   ]
 }

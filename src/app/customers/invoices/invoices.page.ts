@@ -16,6 +16,7 @@ export class InvoicesPage implements OnInit {
   invoiceArr: InterfaceInvoice[] = [];
   customerArr: IClient[] = [];
   invoiceObj!: InterfaceInvoice | null;
+  data: string = new Date().toISOString().slice(0,10)
   error: undefined;
   loggedUser!: AuthData | null;
 
@@ -72,9 +73,10 @@ export class InvoicesPage implements OnInit {
   }
 
   invoicePayment(invoice: InterfaceInvoice) {
+    let ultimaModifica = JSON.stringify(Date.now());
     if (invoice.stato === 'NON PAGATA') {
       this.invoicesService
-        .updateInvoice({ stato: 'PAGATA' }, invoice.id)
+        .updateInvoice({ stato: 'PAGATA', dataUltimaModifica: ultimaModifica }, invoice.id)
         .subscribe(
           (data) => {
             this.getInvoices();
@@ -85,7 +87,7 @@ export class InvoicesPage implements OnInit {
         );
     } else {
       this.invoicesService
-        .updateInvoice({ stato: 'NON PAGATA' }, invoice.id)
+        .updateInvoice({ stato: 'NON PAGATA', dataUltimaModifica: ultimaModifica }, invoice.id)
         .subscribe(
           (data) => {
             this.getInvoices();
