@@ -89,9 +89,18 @@ div.modal {
 .tableAdd {
     border-radius: 8px;
     box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
-.form-select {
+    background-color: rgb(255 255 255 / 0.7);
+    .primaRigaForm {
+        width: 32%;
+    }
+    .form-select {
     color: #727272;
-}
+    }
+    .btn {
+        background-color: #ff8d43;
+            color: white;
+            font-weight: 500;
+    }
 }
 
 }

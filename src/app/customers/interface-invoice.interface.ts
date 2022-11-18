@@ -5,7 +5,7 @@ export interface InterfaceInvoice {
     anno: number,
     importo: number,
     stato: string,
-    cliente: {id: number},
+    cliente: IClient,
     dataInserimento: string,
     dataUltimaModifica: string
 }
