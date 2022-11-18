@@ -10,12 +10,13 @@ import { CustomersService} from '../customers.service'
   styleUrls: ['./invoices.page.scss'],
 })
 export class InvoicesPage implements OnInit {
+
   list: boolean = true;
   @ViewChild('f') mioForm!: NgForm;
   invoiceArr: InterfaceInvoice[] = [];
   customerArr: IClient[] = [];
   invoiceObj!: InterfaceInvoice | null;
-  error = undefined;
+  error: undefined;
   loggedUser!: AuthData | null;
 
   constructor(

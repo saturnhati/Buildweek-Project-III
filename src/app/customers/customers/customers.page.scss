@@ -1,23 +1,112 @@
+.main-content {
 .container-all{
     padding: 0;
     display: flex;
+    height: calc(100vh - 145px);
+    overflow-y: scroll;
 .sidebar {
-    width: 280px;
-    height: calc(100vh - 113px);
+    width: 210px;
+    height: calc(100vh - 145px);
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+}
+h1 {
+    color: #ff8d43;
 }
 li {
     margin-bottom: 4px;
     text-align: center;
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+    width: 85%;
     .nav-link {
         background-color: white;
         color: black;
     }
     button.btn {
-        text-align: center;
+        width: 100%;
     } 
 }
 }
-.main{
-    height: 60vh;
-    overflow-y: scroll;
+.tableList {
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+    .table {
+        border-collapse: separate;
+        border-spacing: 0 1rem;
+
+    }
+    thead {
+        color: #ff8d43;
+        tr {
+            font-size: 1.3rem;
+        }
+    }
+tbody {
+    tr {
+        border-radius: 8px;
+        box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+        .righeAbbassate {
+            padding-top: 11px;
+        }
+        td {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .btn {
+            background-color: #ff8d43;
+            color: white;
+            font-weight: 500;
+        }
+        .btn:nth-of-type(1) {
+            background-color: #A6D2D7;
+        }
+        .btn:nth-of-type(2) {
+            background-color: #377374;
+        }
+        .btn:nth-of-type(3) {
+            background-color: gray;
+        }
+        .btn:nth-of-type(3):hover {
+            background-color: #377374;
+        }
+        .btn:nth-of-type(4):hover {
+            background-color: #d87639;
+        }
+    }
+}
+div.modal {
+    --bs-modal-width: 700px;
+    h5 {
+        color: #ff8d43;
+        font-size: 1rem;
+    }
+    p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: black;
+    }
+}
+}
+.tableAdd {
+    height: calc(100vh - 145px);
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px rgb(0 0 0 / 0.2);
+.form-select {
+    color: #727272;
+}
+.container-dati{
+    display: flex;
+}
+.container-comune{
+    display:flex;
+}
+.container-indirizzo{
+    display: flex;
+}
+.customers-item{
+    width: 30%;
+    margin-right: 1rem;
+}
+}
 }

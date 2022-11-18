@@ -9,7 +9,7 @@ export class CustomersService {
 
   constructor(private http: HttpClient) {}
 
-  costomersArr : IClient[] = []
+  customersArr : IClient[] = []
 
   addCustomers(obj : IClient){
     return this.http.post<IClient>('http://localhost:3000/customers', obj)
