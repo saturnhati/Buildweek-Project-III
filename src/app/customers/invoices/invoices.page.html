@@ -55,7 +55,9 @@
         <tbody>
           <tr *ngFor="let invoice of invoiceArr" class="mb-5 bg-white">
             <td scope="row" class="righeAbbassate">{{invoice.numero}}</td>
-            <td scope="row" class="righeAbbassate">{{invoice.cliente}}</td>
+            <td scope="row" class="righeAbbassate">
+              {{invoice.cliente.ragioneSociale}}
+            </td>
             <td scope="row" class="righeAbbassate">
               {{invoice.importo}}&euro;
             </td>

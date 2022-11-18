@@ -132,17 +132,6 @@
       "id": 5
     },
     {
-      "data": "2022-11-17",
-      "numero": 4,
-      "anno": 2022,
-      "importo": 920,
-      "stato": "PAGATA",
-      "cliente": "Bruno-Romano SPA - TEST",
-      "dataInserimento": "1668702231129",
-      "dataUltimaModifica": "1668702231129",
-      "id": 6
-    },
-    {
       "data": "2022-11-18",
       "numero": 3,
       "anno": 2022,
@@ -154,37 +143,70 @@
       "id": 7
     },
     {
-      "data": "2022-11-17",
-      "numero": 13,
-      "importo": 920,
+      "numero": 76,
+      "importo": 758,
+      "data": "2022-11-18",
       "stato": "NON PAGATA",
-      "cliente": "edffs",
-      "dataInserimento": "1668707498218",
-      "dataUltimaModifica": "1668707498218",
-      "anno": 2022,
-      "id": 8
-    },
-    {
-      "numero": "",
-      "importo": "",
-      "data": "",
-      "stato": "",
-      "cliente": "",
-      "dataInserimento": "1668779129330",
-      "dataUltimaModifica": "1668779129330",
-      "anno": 2022,
-      "id": 9
-    },
-    {
-      "numero": null,
-      "importo": null,
-      "data": null,
-      "stato": null,
-      "cliente": null,
-      "dataInserimento": "1668779130170",
-      "dataUltimaModifica": "1668779130170",
+      "dataInserimento": "1668784251497",
+      "dataUltimaModifica": "1668784251497",
+      "cliente": {
+        "id": 1,
+        "ragioneSociale": "Bruno-Romano SPA - TEST",
+        "partitaIva": "14812266616",
+        "tipoCliente": "SRL",
+        "email": "rosalino.caruso@gmail.com",
+        "pec": "antonio.damico@gmail.com",
+        "telefono": "+38 855 62 44 5685",
+        "nomeContatto": "Sarita",
+        "cognomeContatto": "Serr",
+        "telefonoContatto": "380.260.3225",
+        "emailContatto": "armando.martinelli@hotmail.com",
+        "indirizzoSede": {
+          "via": "Contrada Gastone 4, Piano 4",
+          "civico": "698",
+          "cap": "38615",
+          "comune": {
+            "nome": "LASTRA A SIGNA",
+            "provincia": "FI"
+          }
+        },
+        "dataInserimento": "2019-06-01T08:11:01.911+00:00"
+      },
       "anno": 2022,
       "id": 10
+    },
+    {
+      "numero": 13,
+      "importo": 44,
+      "data": "2022-11-18",
+      "stato": "NON PAGATA",
+      "dataInserimento": "1668784826372",
+      "dataUltimaModifica": "1668784826372",
+      "cliente": {
+        "id": 1,
+        "ragioneSociale": "Bruno-Romano SPA - TEST",
+        "partitaIva": "14812266616",
+        "tipoCliente": "SRL",
+        "email": "rosalino.caruso@gmail.com",
+        "pec": "antonio.damico@gmail.com",
+        "telefono": "+38 855 62 44 5685",
+        "nomeContatto": "Sarita",
+        "cognomeContatto": "Serr",
+        "telefonoContatto": "380.260.3225",
+        "emailContatto": "armando.martinelli@hotmail.com",
+        "indirizzoSede": {
+          "via": "Contrada Gastone 4, Piano 4",
+          "civico": "698",
+          "cap": "38615",
+          "comune": {
+            "nome": "LASTRA A SIGNA",
+            "provincia": "FI"
+          }
+        },
+        "dataInserimento": "2019-06-01T08:11:01.911+00:00"
+      },
+      "anno": 2022,
+      "id": 11
     }
   ]
 }

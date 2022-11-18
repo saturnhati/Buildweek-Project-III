@@ -1,178 +1,381 @@
 <div class="main-content my-3 ms-3">
-<div class="container-all">
-  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
-    <h1 class="fs-4 text-center">Menu</h1>
-    <hr />
-    <ul class="nav nav-pills flex-column mb-auto align-items-center">
-      <li class="nav-item">
-        <button class="btn nav-link active" (click)="viewList()">
-          Customers List
-        </button>
-      </li>
-      <li>
-        <button class="btn nav-link link-dark" (click)="viewForm()">
-          Add Customers
-        </button>
-      </li>
-    </ul>
-    <hr />
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-person-circle me-2 fs-4"></i>
-        <strong>{{this.loggedUser?.user?.firstname | titlecase}}</strong>
-      </a>
-      <ul class="dropdown-menu text-small shadow">
+  <div class="container-all">
+    <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light">
+      <h1 class="fs-4 text-center">Menu</h1>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto align-items-center">
+        <li class="nav-item">
+          <button class="btn nav-link active" (click)="viewList()">
+            Customers List
+          </button>
+        </li>
         <li>
-          <a *ngIf="this.loggedUser !== null"   class="dropdown-item" (click)="logout(this.loggedUser)" >Logout</a>
+          <button class="btn nav-link link-dark" (click)="viewForm()">
+            Add Customers
+          </button>
         </li>
       </ul>
+      <hr />
+      <div class="dropdown">
+        <a
+          href="#"
+          class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-person-circle me-2 fs-4"></i>
+          <strong>{{this.loggedUser?.user?.firstname | titlecase}}</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li>
+            <a
+              *ngIf="this.loggedUser !== null"
+              class="dropdown-item"
+              (click)="logout(this.loggedUser)"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="container tableList bg-light mx-3" *ngIf="list">
-    <table class="table table-borderless text-center">
-      <thead>
-        <tr>
-          <th scope="col">Nr°</th>
-          <th scope="col">Ragione sociale</th>
-          <th scope="col">Partita IVA</th>
-          <th scope="col">Tipo cliente</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of customersArr" class="mb-5 bg-white">
-          <td scope="row" class="righeAbbassate">{{item.id}}</td>
-          <td scope="row" class="righeAbbassate">{{item.ragioneSociale}}</td>
-          <td scope="row" class="righeAbbassate">{{item.partitaIva}}</td>
-          <td scope="row" class="righeAbbassate">{{item.tipoCliente}}</td>
-          <td scope="row">
-            <div class="float-end">            
-              <button class="btn btn-sm mx-1"(click)="deleteCustomers(item)">Delete</button>
-              <button class="btn btn-sm mx-1" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="showDetails(item)">Info</button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container tableList bg-light mx-3" *ngIf="list">
+      <table class="table table-borderless text-center">
+        <thead>
+          <tr>
+            <th scope="col">Nr°</th>
+            <th scope="col">Ragione sociale</th>
+            <th scope="col">Partita IVA</th>
+            <th scope="col">Tipo cliente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of customersArr" class="mb-5 bg-white">
+            <td scope="row" class="righeAbbassate">{{item.id}}</td>
+            <td scope="row" class="righeAbbassate">{{item.ragioneSociale}}</td>
+            <td scope="row" class="righeAbbassate">{{item.partitaIva}}</td>
+            <td scope="row" class="righeAbbassate">{{item.tipoCliente}}</td>
+            <td scope="row">
+              <div class="float-end">
+                <button
+                  class="btn btn-sm mx-1"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addInvoice"
+                  (click)="showForm(item)"
+                >
+                  Add Invoice
+                </button>
+                <button class="btn btn-sm mx-1" (click)="deleteCustomers(item)">
+                  Delete
+                </button>
+                <button
+                  class="btn btn-sm mx-1"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  (click)="showDetails(item)"
+                >
+                  Info
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-4 fw-bold ps-2" id="staticBackdropLabel">Customers</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body ps-4">
-            <div class="row">
-              <div class="col">
-                <h5>Customers #</h5>
-                <p>{{customersObj?.id}}</p>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-4 fw-bold ps-2"
+                id="staticBackdropLabel"
+              >
+                Customers
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body ps-4">
+              <div class="row">
+                <div class="col">
+                  <h5>Customers #</h5>
+                  <p>{{customersObj?.id}}</p>
+                </div>
+                <div class="col">
+                  <h5>Ragione Sociale</h5>
+                  <p>{{customersObj?.ragioneSociale}}</p>
+                </div>
+                <div class="col">
+                  <h5>PartitaIVA</h5>
+                  <p>{{customersObj?.partitaIva}}</p>
+                </div>
+                <div class="col">
+                  <h5>PEC</h5>
+                  <p>{{customersObj?.pec}}</p>
+                </div>
               </div>
-              <div class="col">
-                <h5>Ragione Sociale</h5>
-                <p>{{customersObj?.ragioneSociale}}</p>
-              </div>
-              <div class="col">
-                <h5>PartitaIVA</h5>
-                <p>{{customersObj?.partitaIva}}</p>
-              </div>
-              <div class="col">
-                <h5>PEC</h5>
-                <p>{{customersObj?.pec}}</p>
+              <div class="row secondaRigaModale">
+                <div class="col">
+                  <h5>Telefono</h5>
+                  <p>{{customersObj?.telefono}}</p>
+                </div>
+                <div class="col">
+                  <h5>Nome</h5>
+                  <p>{{customersObj?.nomeContatto}}</p>
+                </div>
+                <div class="col">
+                  <h5>Cognome</h5>
+                  <p>{{customersObj?.cognomeContatto}}</p>
+                </div>
+                <div class="col">
+                  <h5>Data inserimento</h5>
+                  <p>{{customersObj?.dataInserimento | date :'short'}}</p>
+                </div>
               </div>
             </div>
-            <div class="row secondaRigaModale">
-              <div class="col">
-                <h5>Telefono</h5>
-                <p>{{customersObj?.telefono}}</p>
-              </div>
-              <div class="col">
-                <h5>Nome</h5>
-                <p>{{customersObj?.nomeContatto}}</p>
-              </div>
-              <div class="col">
-                <h5>Cognome</h5>
-                <p>{{customersObj?.cognomeContatto}}</p>
-              </div>
-              <div class="col">
-                <h5>Data inserimento</h5>
-                <p>{{customersObj?.dataInserimento | date :'short'}}</p>
-              </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal" >
-              Close
-            </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container-fluid tableAdd mx-3 p-5 d-flex justify-content-center"
+      *ngIf="!list"
+    >
+      <form (ngSubmit)="addCustomers()" #f="ngForm" class="tabella p-5 w-75">
+        <h1 class="fs-4">Inserisci i tuoi dati:</h1>
+        <div class="container-dati">
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="ragioneSociale"
+              placeholder="inserisci la tua ragione sociale..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="partitaIva"
+              placeholder="inserisci la tua partitaIva..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="tipoCliente"
+              placeholder="inserisci il tuo tipoCliente ..."
+            />
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-<div class="container-fluid tableAdd mx-3 p-5 d-flex justify-content-center" *ngIf="!list">
-  <form (ngSubmit)="addCustomers()" #f="ngForm" class="tabella p-5 w-75">
-    <h1 class="fs-4">Inserisci i tuoi dati:</h1>
-    <div class="container-dati">
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="ragioneSociale" placeholder="inserisci la tua ragione sociale...">
-    </div>
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="partitaIva" placeholder="inserisci la tua partitaIva...">
-    </div>
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="tipoCliente" placeholder="inserisci il tuo tipoCliente ...">
-    </div>
-  </div>
-  <div class="container-dati">
-    <div class="mb-3 customers-item">
-      <input type="email" class="form-control" ngModel name="email" placeholder="inserisci la tua email...">
-    </div>
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="pec" placeholder="inserisci la tua pec...">
-    </div>
-    <div class="mb-3 customers-item">
-      <input type="tel" class="form-control" ngModel name="telefono" placeholder="inserisci il tuo numero telefono...">
-    </div>
-  </div>
-  <div class="container-dati">
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="nome" placeholder="inserisci il tuo nome...">
-    </div>
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="cognome" placeholder="inserisci il tuo cognome...">
-    </div>
-    <div class="mb-3 customers-item">
-      <input type="text" class="form-control" ngModel name="numeroTelefono" placeholder="inserisci il tuo numero di telefono...">
-    </div>
-  </div>
-    <h1 class="fs-4">Indirizzo sede:</h1>
-    <div class="container-indirizzo">
-      <div class="mb-3 customers-item">
-        <input type="text" class="form-control" ngModel name="Via" placeholder="inserisci la tua via...">
-      </div>
-      <div class="mb-3 customers-item">
-        <input type="text" class="form-control" ngModel name="Civico" placeholder="inserisci il tuo civico...">
-      </div>
-      <div class="mb-3 customers-item">
-        <input type="text" class="form-control" ngModel name="CAP" placeholder="inserisci il tuo CAP...">
-      </div>
-    </div>
-      <h1 class="fs-4">Comune:</h1>
-      <div class="container-comune"> 
-        <div class="mb-3 d-flex customers-item" >
-          <input type="text" class="form-control" ngModel name="nome" placeholder="inserisci il nome del tuo comune...">
+        <div class="container-dati">
+          <div class="mb-3 customers-item">
+            <input
+              type="email"
+              class="form-control"
+              ngModel
+              name="email"
+              placeholder="inserisci la tua email..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="pec"
+              placeholder="inserisci la tua pec..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="tel"
+              class="form-control"
+              ngModel
+              name="telefono"
+              placeholder="inserisci il tuo numero telefono..."
+            />
+          </div>
         </div>
-        <div class="mb-3 d-flex customers-item">
-          <input type="text" class="form-control" ngModel name="provincia" placeholder="inserisci la tua provincia...">
+        <div class="container-dati">
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="nome"
+              placeholder="inserisci il tuo nome..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="cognome"
+              placeholder="inserisci il tuo cognome..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="numeroTelefono"
+              placeholder="inserisci il tuo numero di telefono..."
+            />
+          </div>
         </div>
-      </div>
-    <div>
-      <button type="submit" class="btn float-end">Add</button>
+        <h1 class="fs-4">Indirizzo sede:</h1>
+        <div class="container-indirizzo">
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="Via"
+              placeholder="inserisci la tua via..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="Civico"
+              placeholder="inserisci il tuo civico..."
+            />
+          </div>
+          <div class="mb-3 customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="CAP"
+              placeholder="inserisci il tuo CAP..."
+            />
+          </div>
+        </div>
+        <h1 class="fs-4">Comune:</h1>
+        <div class="container-comune">
+          <div class="mb-3 d-flex customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="nome"
+              placeholder="inserisci il nome del tuo comune..."
+            />
+          </div>
+          <div class="mb-3 d-flex customers-item">
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="provincia"
+              placeholder="inserisci la tua provincia..."
+            />
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn float-end">Add</button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
-</div>
+
+<!-- MODALE ADD INVOICE -->
+
+<div
+  class="modal fade modal-add"
+  id="addInvoice"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Add Invoice for this customer
+        </h1>
+      </div>
+      <form (ngSubmit)="addInvoice()" #f="ngForm" class="p-5">
+        <div class="d-flex gap-1 justify-content-between">
+          <div class="mb-3 primaRigaForm">
+            <input
+              type="number"
+              class="form-control"
+              id="numero"
+              ngModel
+              name="numero"
+              placeholder="# invoice"
+              required
+            />
+          </div>
+          <div class="mb-3 primaRigaForm">
+            <input
+              type="number"
+              class="form-control"
+              ngModel
+              name="importo"
+              id="importo"
+              placeholder="Amount"
+              required
+            />
+          </div>
+          <div class="mb-3 primaRigaForm">
+            <input
+              type="date"
+              class="form-control"
+              id="data"
+              ngModel
+              name="data"
+              placeholder="date"
+              max="{{ data }}"
+              required
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <select class="form-select" ngModel name="stato" required>
+            <option selected value="" disabled>Status</option>
+            <option selected value="NON PAGATA">NON PAGATA</option>
+            <option value="PAGATA">PAGATA</option>
+          </select>
+        </div>
+        <button type="submit" class="btn float-end" data-bs-dismiss="modal">
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
 </div>
